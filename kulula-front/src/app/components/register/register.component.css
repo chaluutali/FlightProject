@@ -1,0 +1,14 @@
+body{
+    background-color: #525252;
+}
+.centered-form{
+  margin-top: 60px;
+  margin-left: 150px;
+
+}
+
+.centered-form .panel{
+	background: rgba(255, 255, 255, 0.8);
+
+
+}

@@ -1,0 +1,74 @@
+<hr>
+<hr>
+<article class="container-center mt-5 mb-5">
+  <div class="row" >
+    <div class="container">
+ 		   <div class="row">
+ 			     <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+ 				        <ul class="event-list">
+                  <table class = "table table-striped">
+                    <h1 ><b><i class="fas fa-paper-plane"></i> Available Flights</b><small>...matching your search</small></h1>
+                    <tbody><tr *ngFor = "let scheduledFlight of scheduledFlights"  >
+ 				                 <div class="list-group-item ">
+ 							                   <td ><img src="assets/klg.PNG"> <b>| {{scheduledFlight.flightNumber}} | {{scheduledFlight.carrierName}} | <i class="fas fa-paper-plane"></i> {{scheduledFlight.airCraftType}} </b><br><b><i class="fas fa-arrow-alt-circle-right"></i> Departure From: </b>{{scheduledFlight.departureFrom}} <b> | </b> <i class="far fa-clock"></i> {{scheduledFlight.estimatedTimeOfArrival | date: 'yyyy-MM-dd hh:mm:ss'}}<br><b><i class="fas fa-arrow-alt-circle-right"></i> Destination To: </b>{{scheduledFlight.arrivalDestination}} <br><b><i class="far fa-calendar-alt"></i> Travel Date: </b>{{scheduledFlight.departureDate}} </td>
+                                 <br>
+ 							                         <tr><li class="btn btn-info " (click)='standardSelected(scheduledFlight.scheduledFlightId)'>Standard R:{{scheduledFlight.economyPriceStandard}}</li><li class="btn btn-info" (click)='semiSelected(scheduledFlight.scheduledFlightId)'>Semi-Flex R:{{scheduledFlight.economyPriceSemiFlex}}</li><li class="btn btn-info" (click)='fullySelected(scheduledFlight.scheduledFlightId)'>Fully-Flex R:{{scheduledFlight.economyPriceFullyFlex}}</li><li class="btn btn-info" (click)='businessSelected(scheduledFlight.scheduledFlightId)'>Business R:{{scheduledFlight.businessPrice}}</li>
+ 					                                </div>
+                                        </tbody></table>
+ 				                                 </ul>
+ 			                                   </div>
+
+                  <div class="[ col-xs-6 col-sm-offset-1 col-sm-4 ]">
+                    <div class="container-fluid">
+
+                       <h2 class="grid-title"><i class="fa fa-filter"></i> Filters</h2>
+        						        <hr>
+
+          			    					<div class="form-group">
+                                <span><b>Trip Type : </b></span><br>
+                                <select class="btn-outline-info"  data-width="auto" [(ngModel)]="tripType" name = "tripType" >
+                                  <option value = "One Way" >One way</option>
+                                  <option value = "Return" >Return</option>
+                                </select>
+
+
+
+          			    					</div>
+
+
+          			    					<div class="form-group">
+                                <span><b>Preferred Class : </b></span><br>
+                                <select class="btn-outline-info"  data-width="auto" [(ngModel)]="preferredClass" name = "preferredClass">
+                                  <option value = "Business">Business</option>
+                                  <option value = "Economy">Economy</option>
+                                </select>
+          			    					</div>
+
+        												<!-- END FILTER BY CATEGORY -->
+        						<div class="padding"></div>
+                    <hr>
+        						<!-- BEGIN FILTER BY DATE -->
+        						<h5><i class="far fa-calendar-alt"></i> Travel date:</h5>
+                    <div class="form-group">
+                      <input type="date" name="departureDate" [(ngModel)]="departureDate"  class="form-control" placeholder="D.O.B" required  required id="datefield" min= "">
+                    </div>
+                    <div *ngIf = "tripType === 'Return'">
+                    <h5><i class="far fa-calendar-alt"></i> Return date:</h5>
+                    <div class="form-group">
+                      <input type="date" name="departureDate" [(ngModel)]="departureDate"  class="form-control" placeholder="D.O.B" required  required id="datefield" min= "">
+                    </div>
+                  </div>
+                    <hr>
+                     <input type="submit" value="Update Search Results" class="btn-info" (click)='onSubmit()'>
+        						<!-- END FILTER BY DATE -->
+                  </div>
+      </div>
+ 		</div>
+ 	</div>
+        <div class="col-1">
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-5">
+        </div><!-- column end -->
+        <div class="col-1"></div>
+    </div>
+</article>

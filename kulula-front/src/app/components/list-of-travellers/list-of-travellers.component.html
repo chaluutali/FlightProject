@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="panel panel-default">
+    <table class = "table table-striped">
+      <tr *ngFor = "let traveller of this.listLength; let i = index">
+        <td><b>{{i+1}}.</b></td>
+        <td>{{traveller.firstName}} {{traveller.lastName}}</td>
+        <td>{{traveller.dateOfBirth}}</td>
+        <td>{{traveller.emailAddress}}</td>
+        <td>{{traveller.mobileNumber}}</td>
+        <td><input type="submit" value="Edit" class="btn btn-outline-primary " (click) ="onEdit(i)" ></td>
+    </table>
+  </div>
+</div>

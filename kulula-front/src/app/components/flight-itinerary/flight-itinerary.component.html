@@ -1,0 +1,148 @@
+
+<div class="container">
+        <div class="row centered-form">
+        <div class="col-xs-24 col-sm-16 col-md-8 col-sm-offset-4 col-md-offset-8">
+          <div class="stepwizard">
+            <div class="stepwizard-row">
+              <div class="stepwizard-step">
+                <label class="label btn-dark btn-circle " disabled="disabled">1</label>
+                <p>Travellers</p>
+              </div>
+              <div class="stepwizard-step">
+                <label class="label btn-dark btn-circle" disabled="disabled">2</label>
+                <p>Seat-Selection</p>
+              </div>
+              <div class="stepwizard-step">
+                <label class="label btn-dark btn-circle" disabled="disabled">3</label>
+                <p>Extras</p>
+              </div>
+              <div class="stepwizard-step">
+                <label class="label btn-primary btn-circle" disabled="disabled">4</label>
+                <p>Review</p>
+              </div>
+              <div class="stepwizard-step">
+                <label class="label btn-dark btn-circle" disabled="disabled">5</label>
+                <p>Payment</p>
+              </div>
+            </div>
+        </div>
+          <hr>
+          <h1 style="text-align: center" ><i class="far fa-id-card"></i> <b>Flight Itinerary</b></h1>
+          <hr>
+          <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+            <span><img src="assets/klg.PNG"><b> {{flightNumber}} | {{carrierName}} | <i class="fas fa-paper-plane"></i> {{airCraftType}} | Trip Type : </b>{{fare_Type}}<br><i class="fas fa-arrow-alt-circle-right"></i> Departure From : {{departureFrom}} <br><i class="fas fa-arrow-alt-circle-right"></i> Destination To : {{arrivalDestination}} <br><i class="far fa-calendar-alt"></i> Travel Date : {{departureDate}}
+              <br><b><i class="far fa-clock"></i> Time: </b>{{estimatedTimeOfArrival  | date: 'hh:mm:ss'}}</span>
+          </div>
+          <hr>
+  <h3 class="panel-title "><b>Traveller Details</b></h3>
+  <div class="panel panel-default">
+    <table class = "table table-hover">
+      <tr *ngFor = "let traveller of travellers; let i = index">
+        <td><b>{{i+1}}.</b></td>
+        <td>{{travellers[i].firstName}} {{travellers[i].lastName}}</td>
+        <td>{{travellers[i].emailAddress}}</td>
+        <td>{{travellers[i].mobileNumber}}</td>
+        <td>{{travellers[i].dateOfBirth}}</td>
+    </table>
+  </div>
+  <hr>
+        	<div class="panel panel-default">
+        		<div class="panel-heading">
+			    		<h3 class="panel-title "><b>Payment Break Down</b></h3>
+              <hr>
+			 			</div>
+			 			<div class="panel-body">
+              <h4><b>Per-Person Fares</b></h4>
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <span>Fare Type : {{fareType}}</span>
+                    <br>
+                    <span>Nunber Of Travellers : {{numberOfTravellers}}</span>
+                 </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <span>Pre-Flight Cancellation Fee : R {{preFlightCancellationFee}}</span>
+                    <br>
+                    <span>Per-Person Fee : R {{fareTotal}}</span>
+                </div>
+              </div>
+                  <span><b>Fares Total :</b> R {{fareTotal*numberOfTravellers}}</span>
+                <hr>
+                <h4><b>Taxes And Fees</b></h4>
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                      <span>VAT : % {{valueAddedTax}}</span>
+                      <br>
+                      <span>Passenger Safety Charge : R {{passengerSafetyCharge}}</span>
+                      <br>
+                      <span style="text-align: center"style="text-align: center"><small><b><i>Note! All Taxes and service charges are included in the above Fares total</i></b></small></span>
+
+                   </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                      <span>Passenger Security Charge : R {{passengerSecurityCharge}}</span>
+                      <br>
+                      <span>Passenger Service Charge : R {{passengerServiceCharge2}}</span>
+                      <br>
+                      <span>fuel SurCharge : R {{fuelSurCharge}}</span>
+
+                  </div>
+
+                </div>
+              <hr>
+              <h4><b>Pre-Paid Seats</b></h4>
+              <div class="row">
+                  <div class="container">
+                  <span><small><b><i>Type Break Bown</i></b></small><br><small><i>Front (Extra Legroom) R : {{fRowPrice}}<br>Front (Standard) R : {{frontPrice}}
+                    <br>Exit Row (Extra Legroom) R : {{eRowPrice}}<br>Stretch Zone (Extra Legroom) R : {{sZonePrice}}<br>Back (Standard) R : {{backPrice}}</i></small></span>
+                    <hr>
+                    <div class="panel panel-default">
+                      <table class = "table table-hover">
+                        <tr *ngFor = "let seat of seat; let i = index">
+                          <td><b>{{i+1}}.</b></td>
+                          <td>{{travellers[i].firstName}} {{travellers[i].lastName}}</td>
+                          <td>{{travellers[i].emailAddress}}</td>
+                          <td>Seat: {{seat.seatId + 1}}</td>
+                          <td>Type: {{seat.seatType}}</td>
+
+                      </table>
+                      <br>
+                      <span><b>Pre-Paid Seats Total :</b> R {{seatPrice}}</span>
+
+                    </div>
+                  </div>
+
+                </div>
+              <hr>
+              <h4><b>Extras</b></h4>
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <span>Extra Bag Price : R {{extraBagPrice}}</span>
+                    <br>
+                    <span>Number of Bags : {{numExtraBag}}</span>
+                    <br>
+                    <span><b>Total Bag Price :</b> R {{totalExtraBags}}</span>
+                 </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <span>Travel Cover : R {{travelCover}}</span>
+                    <br>
+                    <span>Number of Travellers : {{numTravelCover}}</span>
+                    <br>
+                    <span><b>Total Travel Cover :</b> R {{totalTravelCover}}</span>
+                </div>
+              </div>
+              <hr>
+              <span>SlowXS Lounge Price : R {{slowXSLoungePrice}}</span>
+              <br>
+              <span>Number of Travellers : {{numSlowXsLounge}}</span>
+              <br>
+              <span><b>Total SlowXS Lounge :</b> R {{totalSlowXsLounge}}</span>
+              <hr>
+              <h4><b>Grand Total</b>: R {{totalSlowXsLounge + totalTravelCover + totalExtraBags + seatPrice + (fareTotal * numberOfTravellers)}}</h4>
+              <hr>
+              <h3 style="text-align: center"><b>On We Go</b><small>...</small><i class="fas fa-walking"></i></h3>
+              <button class = "mybtn btn-success" (click)='submitReview()' style='width:25%'> Proceed To Payment </button>
+              <hr>
+			    	</div>
+          </div>
+        </div>
+    	</div>
+    </div>

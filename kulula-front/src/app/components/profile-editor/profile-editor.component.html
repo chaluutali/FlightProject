@@ -1,0 +1,76 @@
+
+<div class="container">
+        <div class="row centered-form">
+        <div class="col-xs-24 col-sm-16 col-md-8 col-sm-offset-4 col-md-offset-8">
+        	<div class="panel panel-default">
+        		<div class="panel-heading">
+			    		<h3 class="panel-title ">Make changes to your User Profile<small>...It's also free!</small></h3>
+			 			</div>
+			 			<div class="panel-body">
+			    		<form #frm= "ngForm" role="form" (ngSubmit)="onSubmit()">
+			    			<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			                <input type ="text" name="firstName" [(ngModel)]="firstName" class="form-control" placeholder="first Name" required>
+                      <div *ngIf = "firstName.errors?.invalid && (firstName.errors?.dirty|| firstName.errors?.touched)" class="alert-danger"></div>
+
+			    					</div>
+			    				 </div>
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    						<input type="text" name="lastName" [(ngModel)]="lastName" class="form-control" placeholder="Last Name" required>
+                      <div *ngIf= "lastName.invalid && (lastName.dirty|| lastName.touched)" class="alert-danger"></div>
+			    					</div>
+			    				</div>
+			    			</div>
+			    			<div class="form-group">
+			    				<input type="email" name="emailAddress"[(ngModel)]="emailAddress" class="form-control" placeholder="email@example.com" required>
+                  <div *ngIf= "emailAddress.invalid && (emailAddress.dirty|| emailAddress.touched)" class="alert-danger"></div>
+			    			</div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div>
+                  <input type="radio"
+                    name="gender"[(ngModel)]="gender" value="true" checked >
+                  <label for="genderChoice1">Male</label>
+                  </div>
+                 <div >
+                  <input type="radio"
+                   name="gender" [(ngModel)]="gender" value="false">
+                  <label for="genderChoice2">Female</label>
+                </div>
+               </div>
+			    			<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    						<input type="text" name="mobileNumber" [(ngModel)]="mobileNumber" class="form-control" placeholder="+27 mobile" required>
+                      <div *ngIf= "mobileNumber.invalid && (mobileNumber.dirty|| mobileNumber.touched)" class="alert-danger"></div>
+			    					</div>
+			    				</div>
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    						<input type="date" name="dateOfBirth" [(ngModel)]="dateOfBirth"  class="form-control" placeholder="D.O.B" required>
+			    					</div>
+			    				</div>
+			    			</div>
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <input type="text" name="userName" [(ngModel)]="userName" class="form-control" placeholder="User Name" required>
+                      <div *ngIf= "userName.invalid && (userName.dirty|| userName.touched)" class="alert-danger"></div>
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <input type="password" name="password" [(ngModel)]="password" class="form-control" placeholder="Password" required>
+                      <div *ngIf= "password.invalid && (password.dirty|| password.touched)" class="alert-danger"></div>
+                    </div>
+                  </div>
+                </div>
+			    			 <input type="submit" value="submit" class="btn btn-success"[disabled]= "frm.invalid" (click)='onSubmit()'>
+                  <input type="submit" value="Back" class="btn btn-primary" (click)='back()'>
+			    		</form>
+			    	</div>
+          </div>
+        </div>
+    	</div>
+    </div>

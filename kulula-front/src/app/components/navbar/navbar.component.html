@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+     <div class="container" id="navbarsExampleDefault">
+       <ul class="navbar-nav mr-auto">
+         <li class="nav-item"  [routerLinkActive]= "['active']" [routerLinkActiveOptions]= "{exact:true}" align="center">
+           <a  class="nav-link " [routerLink]= "['/']"><i class="fas fa-home"></i><br>Home</a>
+         </li>
+         <li class="nav-item" align="center">
+           <a class="nav-link "   [routerLink]= "['/flightSearchForm']" ><i class="fas fa-plane "></i><br>Flights</a>
+         </li>
+         <li  class="nav-item" align="center">
+           <a class="nav-link disabled"  [routerLink]= "['/dashboard']" ><i class="fas fa-car"></i><br>Car Hire</a>
+         </li>
+         <li class="nav-item" align="center">
+           <a class="nav-link disabled"   [routerLink]= "['/dashboard']"><i class="fas fa-hospital-symbol"></i><br>Holiday</a>
+         </li>
+         <li class="nav-item" align="center">
+           <a class="nav-link disabled"   [routerLink]= "['/dashboard']"><i class="fas fa-building"></i><br>Hotel</a>
+         </li>
+
+         <li class="nav-item" align="center">
+           <a class="nav-link "   [routerLink]= "['/login']"><i class="fas fa-user-circle"></i><br>Profile / Register</a>
+         </li>
+
+       </ul>
+       <form class="form-inline my-2 my-lg-0">
+         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+       </form>
+     </div>
+   </nav>

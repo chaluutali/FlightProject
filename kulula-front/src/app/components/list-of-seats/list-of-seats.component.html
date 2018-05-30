@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="panel panel-default">
+    <table class = "table table-striped">
+      <tr *ngFor = "let seat of this.listOfSeats; let i = index">
+        <td><b>{{i+1}}.</b></td>
+        <td>{{travellers[i].firstName}} {{travellers[i].lastName}}</td>
+        <td>Seat: {{seat.seatId + 1}}</td>
+        <td>Type: {{seat.seatType}}</td>
+        <td><input type="submit" value="Change" class="btn btn-outline-primary " (click) ="onChange()" ></td>
+    </table>
+  </div>
+</div>

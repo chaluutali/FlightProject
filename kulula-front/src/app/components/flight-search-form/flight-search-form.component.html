@@ -1,0 +1,99 @@
+<hr>
+<div class="container">
+        <div class="row centered-form">
+        <div class="col-xs-24 col-sm-16 col-md-8 col-sm-offset-4 col-md-offset-8">
+        	<div class="panel panel-default">
+        		<div class="panel-heading">
+			    		<h1 class="panel-title text-center"><i class="fas fa-street-view"></i> <b>Where are we off to</b><small>...?</small></h1>
+              <hr>
+			 			</div>
+			 			<div class="panel-body">
+			    		<form #frm= "ngForm" role="form" >
+			    			<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+                      <span><b>Trip Type : </b></span>
+                      <select class="btn-outline-info"  data-width="auto" [(ngModel)]="tripType" name = "tripType" >
+                        <option value = "One Way" >One way</option>
+                        <option value = "Return" >Return</option>
+                      </select>
+
+			    					</div>
+			    				 </div>
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+                      <span><b>Preferred Class : </b></span>
+                      <select class="btn-outline-info"  data-width="auto" [(ngModel)]="preferredClass" name = "preferredClass">
+                        <option value = "Business">Business</option>
+                        <option value = "Economy">Economy</option>
+                      </select>
+			    					</div>
+			    				</div>
+                  <hr>
+			    			</div>
+			    			<div class="form-group">
+                  <div>
+                  <span><i class="far fa-calendar-alt"></i> <b>Travel Date : </b></span>
+                        <input type="date" name="departureDate" [(ngModel)]="departureDate" class="form-control" placeholder="D.O.B" required id="datefield" min= "">
+
+                <hr>
+              </div>
+              <div *ngIf = "tripType === 'Return'">
+                  <span><i class="far fa-calendar-alt"></i> <b>Return Date : </b></span>
+                <input  type="date" name="returnDate" [(ngModel)]="returnDate" class="form-control" placeholder="D.O.B" required  id="datefield2"  min= "{{td}}" >
+                <hr>
+
+              </div>
+                <div>
+                <span><i class="fas fa-arrow-alt-circle-right"></i> <b>Departure From : </b></span>
+                <select class="btn-outline-info"  data-width="auto" [(ngModel)]="destinationFrom" name = "destinationFrom">
+                  <option value = "Johannesburg">Johannesburg</option>
+                  <option value = "CapeTown">CapeTown</option>
+                  <option value = "Durban">Durban</option>
+                  <option value = "PortElizabeth">PortElizabeth</option>
+                </select>
+              </div>
+              <hr>
+                <div>
+                <span><i class="fas fa-arrow-alt-circle-right"></i><b> Destination To : </b></span>
+                <select class="btn-outline-info"  data-width="auto"  [(ngModel)]="destinationTo" name = "destinationTo">
+                  <option  value = "PortElizabeth">PortElizabeth</option>
+                  <option  value = "Johannesburg">Johannesburg</option>
+                  <option  value = "CapeTown">CapeTown</option>
+                  <option  value = "Durban">Durban</option>
+                </select>
+              </div>
+			    			</div>
+              <hr>
+			    			<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+                       <span><b> Adults : </b></span>
+			    						<input type="number" name="numberOfAdults" [(ngModel)]="numberOfAdults"  class="form-control" placeholder= '1' min="1" max="9">
+
+			    					</div>
+			    				</div>
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+                      <span><b> Children : </b></span>
+                     <input type="number" name="numberOfChildren" [(ngModel)]="numberOfChildren"  class="form-control" placeholder= '0' min="0" max="8">
+			    					</div>
+			    				</div>
+			    			</div>
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <span><b> Infants : </b></span>
+                     <input type="number" name="numberOfInfants"  [(ngModel)]="numberOfInfants" class="form-control" placeholder= '0' min="0" max="3">
+                    </div>
+                  </div>
+
+                </div>
+			    			 <input type="submit" value="Search for Flights" class="btn-outline-success"[disabled]= "frm.invalid" (click)='onSearch()'>
+                 <hr>
+			    		</form>
+			    	</div>
+          </div>
+        </div>
+    	</div>
+    </div>

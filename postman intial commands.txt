@@ -1,0 +1,23 @@
+
+--------------------------
+AirCraft Commands
+--------------------------
+Get- http://localhost:8080/aircraft
+post- http://localhost:8080/aircraft
+
+---------------------------
+Extras Commands
+---------------------------
+Get- http://localhost:8080/user/{emailAddress}/searchlog/{searchLogDateId}/flight/{flightId}/extras/{extrasId}
+post- http://localhost:8080/user/{emailAddress}/searchlog/{searchLogDateId}/flight/{flightId}/extras
+
+---------------------------
+PerPersonFares Commands
+---------------------------
+Get- http://localhost:8080/user/{emailAddress}/searchlog/{searchLogDateId}/flight/{flightId}/fares/{perPersonFaresId} x4
+post- http://localhost:8080/user/{emailAddress}/searchlog/{searchLogDateId}/flight/{flightId}/fares
+
+---------------------------
+ScheduledFlights Commands
+---------------------------
+post- http://localhost:8080/user/{emailAddress}/searchlog/{searchLogDateId}/search

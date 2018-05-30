@@ -1,0 +1,111 @@
+<div class="container">
+        <div class="row centered-form">
+        <div class="col-xs-24 col-sm-16 col-md-8 col-sm-offset-4 col-md-offset-8">
+          <h1 ><i class="fas fa-file-alt"></i> <b>Booking Reference : </b> <small> {{reference}}</small></h1>
+          <hr>
+          <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+            <span><img src="assets/klg.PNG"><b> {{flightNumber}} | {{carrierName}} | <i class="fas fa-paper-plane"></i> {{airCraftType}} | Trip Type : </b>{{fare_Type}}<br><i class="fas fa-arrow-alt-circle-right"></i> Departure From : {{departureFrom}} <br><i class="fas fa-arrow-alt-circle-right"></i> Destination To : {{arrivalDestination}} <br><i class="far fa-calendar-alt"></i> Travel Date : {{departureDate}}
+              <br><b><i class="far fa-clock"></i> Time: </b>{{estimatedTimeOfArrival  | date: 'hh:mm:ss'}}</span>
+          </div>
+          <hr>
+
+          <h3 class="panel-title "><b>Traveller Details</b></h3>
+          <hr>
+          <span>First Name : {{firstName}}</span>
+          <br>
+          <span>Last Name : {{lastName}}</span>
+          <br>
+          <span><i class="far fa-calendar-alt"></i> Date Of Birth : {{dateOfBirth}}</span>
+          <br>
+          <span><i class="far fa-envelope"></i> Email : {{emailAddress}}</span>
+          <br>
+          <span><i class="fas fa-phone"></i> Contact : {{mobileNumber}}</span>
+          <br>
+          <button class = "btn-warning" (click)='editTraveller()' style='width:25%'>Manage Traveller </button>
+          <hr>
+          <div class="panel panel-default">
+        		<div class="panel-heading">
+			    		<h3 class="panel-title "><b>Payment Break Down</b></h3>
+              <hr>
+			 			</div>
+			 			<div class="panel-body">
+              <h4><b>Per-Person Fares</b></h4>
+			    			<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+                      <span>Fare Type : {{fareType}}</span>
+                      <br>
+                      <span>Nunber Of Checked Baggage : {{numberOfCheckedBaggage}}</span>
+			    				 </div>
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+
+                      <span>Pre-Flight Cancellation Fee : R {{preFlightCancellationFee}}</span>
+                      <br>
+                      <span>Flight Changes Fee : R {{flightChangesFee}}</span>
+			    				</div>
+			    			</div>
+                  <span>Fares Total : R {{fareTotal}}</span>
+                  <br>
+                  <button class = "btn-warning" (click)='editFares()' style='width:25%'>Change Fare Type</button>
+                <hr>
+                <h4><b>Taxes And Fees</b></h4>
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                      <span>VAT : R {{valueAddedTax}}</span>
+                      <br>
+                      <span>Passenger Safety Charge : R {{passengerSafetyCharge}}</span>
+                   </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                      <span>Passenger Security Charge : R {{passengerSecurityCharge}}</span>
+                      <br>
+                      <span>Passenger Service Charge : R {{passengerServiceCharge2}}</span>
+                      <br>
+                      <span>fuel SurCharge : R {{fuelSurCharge}}</span>
+                  </div>
+                </div>
+              <hr>
+              <h4><b>Pre-Paid Seats</b></h4>
+                              <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                  <span>Seat Type : {{seatType}}</span>
+                                  <br>
+                                  <span>Seat Number : {{seatId + 1}}</span>
+                                  <br>
+                                  <span>Pre-Paid Seats Total : R {{totalSeat}}</span>
+                                  <br>
+                                  <button class = "btn-warning" (click)='editSeat()' style='width:50%'>Manage Seat/s</button>
+                                 </div>
+                              </div>
+              <hr>
+              <h4><b>Extras</b></h4>
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <span>Extra Bag Price : R {{extraBagPrice}}</span>
+                    <br>
+                    <span>Number of Bags : {{numExtraBag}}</span>
+                    <br>
+                    <span>Total Bag Price : R {{totalExtraBags}}</span>
+                 </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <span>Travel Cover : R {{travelCover}}</span>
+                    <br>
+                    <span>Number of Travellers : {{numTravelCover}}</span>
+                    <br>
+                    <span>Total Travel Cover : R {{totalTravelCover}}</span>
+                </div>
+              </div>
+              <hr>
+              <span>SlowXS Lounge Price : R {{slowXSLoungePrice}}</span>
+              <br>
+              <span>Number of Travellers : {{numSlowXsLounge}}</span>
+              <br>
+              <span>Total SlowXS Lounge : R {{totalSlowXsLounge}}</span>
+              <br>
+              <button class = "btn-warning" (click)='editExtras()' style='width:25%'>Manage Flight Extras</button>
+              <hr>
+              <h4><b>Grand Total</b>: R {{totalSlowXsLounge + totalTravelCover + totalExtraBags + fareTotal}}</h4>
+              <hr>
+			    	</div>
+          </div>
+        </div>
+    	</div>
+    </div>

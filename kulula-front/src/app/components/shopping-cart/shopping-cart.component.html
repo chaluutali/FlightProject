@@ -1,0 +1,109 @@
+<div class="container">
+        <div class="row centered-form">
+        <div class="col-xs-24 col-sm-16 col-md-8 col-sm-offset-4 col-md-offset-8">
+        	<div class="panel panel-default">
+        		<div class="panel-heading">
+			    		<h1><i class="fas fa-cart-arrow-down"></i> <b>What you're paying for</b><small>...its not free</small></h1>
+              <hr>
+			 			</div>
+			 			<div class="panel-body">
+              <h3 class="panel-title "><b>Payment Break Down</b></h3>
+              <hr>
+            </div>
+            <div class="panel-body">
+              <h4><b>Per-Person Fares</b></h4>
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                      <span>Fare Type : {{fareType}}</span>
+                      <br>
+                      <span>Nunber Of Travellers : {{numberOfTravellers}}</span>
+                   </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                      <span>Pre-Flight Cancellation Fee : R {{preFlightCancellationFee}}</span>
+                      <br>
+                      <span>Per-Person Fee : R {{fareTotal}}</span>
+                  </div>
+                </div>
+                  <span><b>Fares Total :</b> R {{fareTotal * numberOfTravellers}}</span>
+                <hr>
+                <h4><b>Taxes And Fees</b></h4>
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                      <span>VAT : % {{valueAddedTax}}</span>
+                      <br>
+                      <span>Passenger Safety Charge : R {{passengerSafetyCharge}}</span>
+                      <br>
+                      <span style="text-align: center"style="text-align: center"><small><b><i>Note! All Taxes and service charges are included in the above Fares total</i></b></small></span>
+
+                   </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                      <span>Passenger Security Charge : R {{passengerSecurityCharge}}</span>
+                      <br>
+                      <span>Passenger Service Charge : R {{passengerServiceCharge2}}</span>
+                      <br>
+                      <span>fuel SurCharge : R {{fuelSurCharge}}</span>
+
+                  </div>
+
+                </div>
+              <hr>
+              <h4><b>Pre-Paid Seats</b></h4>
+                              <div class="row">
+
+
+                                  <div class="container">
+                                  <span><small><b><i>Type Break Bown</i></b></small><br><small><i>Front (Extra Legroom) R : {{fRowPrice}}<br>Front (Standard) R : {{frontPrice}}
+                                    <br>Exit Row (Extra Legroom) R : {{eRowPrice}}<br>Stretch Zone (Extra Legroom) R : {{sZonePrice}}<br>Back (Standard) R : {{backPrice}}</i></small></span>
+                                    <hr>
+                                    <div class="panel panel-default">
+                                      <table class = "table table-hover">
+                                        <tr *ngFor = "let seat of seat; let i = index">
+                                          <td><b>{{i+1}}.</b></td>
+                                          <td>{{travellers[i].firstName}} {{travellers[i].lastName}}</td>
+                                          <td>{{travellers[i].emailAddress}}</td>
+                                          <td>Seat: {{seat.seatId + 1}}</td>
+                                          <td>Type: {{seat.seatType}}</td>
+
+                                      </table>
+                                      <br>
+                                      <span><b>Pre-Paid Seats Total :</b> R {{seatPrice}}</span>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+              <hr>
+              <h4><b>Extras</b></h4>
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <span>Extra Bag Price : R {{extraBagPrice}}</span>
+                    <br>
+                    <span>Number of Bags : {{numExtraBag}}</span>
+                    <br>
+                    <span><b>Total Bag Price :</b> R {{totalExtraBags}}</span>
+                 </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <span>Travel Cover : R {{travelCover}}</span>
+                    <br>
+                    <span>Number of Travellers : {{numTravelCover}}</span>
+                    <br>
+                    <span><b>Total Travel Cover :</b> R {{totalTravelCover}}</span>
+                </div>
+              </div>
+              <hr>
+              <span>SlowXS Lounge Price : R {{slowXSLoungePrice}}</span>
+              <br>
+              <span>Number of Travellers : {{numSlowXsLounge}}</span>
+              <br>
+              <span><b>Total SlowXS Lounge :</b> R {{totalSlowXsLounge}}</span>
+              <hr>
+              <h4><b>Grand Total</b>: R {{totalSlowXsLounge + totalTravelCover + totalExtraBags + seatPrice + (fareTotal * numberOfTravellers)}}</h4>
+              <hr>
+              <h3 style="text-align: center" ><b>Like What you see?</b> <small>let's continue...</small><i class="fas fa-walking"></i></h3>
+              <button class = "mybtn btn-primary " (click)='back()' style='width:15%'> Back </button>
+                <hr>
+			    	</div>
+          </div>
+        </div>
+    	</div>
+    </div>

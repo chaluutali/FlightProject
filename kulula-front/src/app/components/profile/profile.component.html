@@ -1,0 +1,240 @@
+<body>
+<article class="container-fluid mt-5 mb-5">
+    <div class="row">
+        <div class="col-12">
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-5">
+            <div class=" kl-card kl-xl kl-shine kl-show">
+                <div class="kl-card-block kl-xl bg-primary kl-shadow-b kl-overlay kl-slide-in kl-show">
+                    <div class="kl-card-overlay kl-card-overlay-split-q kl-dark kl-inverse">
+                        <div class="kl-card-overlay-item">
+                        </div>
+                        <div class="kl-card-overlay-item"></div>
+                        <div class="kl-card-overlay-item">
+                            <div class="kl-figure-block">
+                            </div>
+                        </div>
+                        <div class="kl-card-overlay-item">
+                            <div class="kl-figure-block">
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="kl-card-avatar kl-xl kl-pm"><img class="kl-b-success kl-b-circle kl-b-5 kl-slow kl-shadow-br kl-reveal" src="assets/user0.png"></a>
+                    <div class="kl-background">
+                        <img src="assets/planeback.jpg">
+                    </div>
+                </div>
+                <div class="card-block">
+                  <hr>
+                    <h3 class="card-title"><b>{{userName}}</b></h3>
+                    <p class="card-text">{{emailAddress}}</p>
+                    <p class="card-text">First Name : {{firstName}}</p>
+                    <p class="card-text">Last Name : {{lastName}}</p>
+                    <p class="card-text">Date Of Birth : {{dateOfBirth}} </p>
+                    <p class="card-text">Gender : {{gender}}</p>
+                    <p class="card-text">Mobile Number : {{mobileNumber}} </p>
+                    <div class="kl-card-social text-center">
+                        <hr class="hw">
+                        <a href="#"><img class="kl-b-2 kl-spin" src="assets/twitter.jpg"></a>
+                        <a href="#"><img class="kl-b-2 kl-spin" src="assets/gmail.jpg"></a>
+                        <a href="#"><img class="kl-b-2 kl-spin" src="assets/facebook.jpg"></a>
+                    </div>
+                    <div class="kl-card-item kl-ptr kl-show mr-1 mt-1"><button class="badge badge-danger" (click) ="logout()"> Log Out </button></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-5">
+            <div class=" kl-card kl-xl kl-reveal kl-fade kl-overlay kl-show kl-slide-in">
+                <div class="kl-card-block kl-md bg-primary kl-shadow-br kl-overlay">
+                    <div class="kl-card-overlay kl-card-overlay-split-v kl-dark kl-inverse">
+                        <div class="kl-card-overlay-item">
+                            <div class="kl-figure-block">
+                            </div>
+                        </div>
+                        <div class="kl-card-overlay-item">
+                            <div class="kl-figure-block">
+                                <span class="kl-title"> User Info</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a  [routerLink]= "['/profileEditor']" class="kl-card-avatar kl-md kl-pm kl-slow"><img class="kl-b-info kl-b-circle kl-b-3 kl-reveal kl-slow kl-shadow-br kl-fade" src="assets/user0.png"></a>
+                    <div class="kl-background">
+                        <img src="assets/details.jpg">
+                    </div>
+
+                    <div class="kl-card-item kl-ptr kl-show mr-1">
+                        <span class="badge badge-info">Edit Details</span>
+                    </div>
+                </div>
+            </div> <!-- card end -->
+            <div class=" kl-card kl-xl kl-reveal kl-fade kl-overlay kl-show kl-slide-in">
+                <div class="kl-card-block kl-md bg-primary kl-shadow-br kl-overlay">
+                    <div class="kl-card-overlay kl-card-overlay-split-v kl-dark kl-inverse">
+                        <div class="kl-card-overlay-item">
+                            <div class="kl-figure-block">
+                            </div>
+                        </div>
+                        <div class="kl-card-overlay-item">
+                            <div class="kl-figure-block">
+                                <span class="kl-title"> Themes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="kl-card-avatar kl-md kl-pm kl-slow"><img class="kl-b-info kl-b-circle kl-b-3 kl-reveal kl-slow kl-shadow-br kl-fade" src="assets/theme.jpg"></a>
+                    <div class="kl-background">
+                        <img src="assets/tmg.jpg">
+                    </div>
+                    <div class="kl-card-item kl-ptr kl-show mr-1">
+                        <span class="badge badge-info">  Change Theme</span>
+                    </div>
+                </div>
+            </div> <!-- card end -->
+ <div class=" kl-card kl-xl kl-reveal kl-fade kl-overlay kl-show kl-slide-in">
+     <div class="kl-card-block kl-md bg-primary kl-shadow-br kl-overlay">
+         <div class="kl-card-overlay kl-card-overlay-split-v kl-dark kl-inverse">
+             <div class="kl-card-overlay-item">
+                 <div class="kl-figure-block">
+                 </div>
+             </div>
+             <div class="kl-card-overlay-item">
+                 <div class="kl-figure-block">
+                     <span class="kl-title"> Travel Bank</span>
+                 </div>
+             </div>
+         </div>
+         <a href="#" class="kl-card-avatar kl-md kl-pm kl-slow"><img class="kl-b-info kl-b-circle kl-b-3 kl-reveal kl-slow kl-shadow-br kl-fade" src="assets/bank2.jpg"></a>
+         <div class="kl-background">
+             <img src="assets/tb.jpg">
+         </div>
+
+         <div class="kl-card-item kl-ptr kl-show mr-1">
+             <span class="badge badge-info">Travel Bank</span>
+         </div>
+     </div>
+ </div> <!-- card end -->
+           <div class=" kl-card kl-xl kl-reveal kl-fade kl-overlay kl-show kl-slide-in">
+                 <div class="kl-card-block kl-md bg-primary kl-shadow-br kl-overlay">
+                     <div class="kl-card-overlay kl-card-overlay-split-v kl-dark kl-inverse">
+                         <div class="kl-card-overlay-item">
+                             <div class="kl-figure-block">
+                             </div>
+                         </div>
+                         <div class="kl-card-overlay-item">
+                             <div class="kl-figure-block">
+                                 <span class="kl-title"> Fan Mail</span>
+                             </div>
+                         </div>
+                     </div>
+                     <a href="#" class="kl-card-avatar kl-md kl-pm kl-slow"><img class="kl-b-info kl-b-circle kl-b-3 kl-reveal kl-slow kl-shadow-br kl-fade" src="assets/fans.png"></a>
+                     <div class="kl-background">
+                         <img src="assets/fm2.jpg">
+                     </div>
+                     <div class="kl-card-item kl-ptr kl-show mr-1">
+                         <span class="badge badge-info">Kulula Fan Mail</span>
+                     </div>
+                 </div>
+             </div> <!-- card end -->
+                         <div class=" kl-card kl-xl kl-reveal kl-fade kl-show kl-slide-in kl-shine kl-reveal kl-hide kl-spin ">
+                             <div class="kl-card-block kl-lg bg-light  kl-overlay">
+                                 <div class="kl-background">
+                                     <img  src="assets/ironman3.png">
+                                 </div>
+                                 <div class="kl-card-item kl-pbl kl-show text-primary kl-txt-shadow">
+                                     <div class="kl-figure-block">
+                                     </div>
+                                 </div>
+                                 <div class="kl-card-item kl-pbr kl-show text-primary kl-txt-shadow">
+                                     <div class="kl-figure-block">
+                                     </div>
+                                 </div>
+                                 <div class="kl-card-item kl-pm kl-show text-black kl-txt-shadow text-center">
+                                     <h3 class="mb-0"><b>Flight</b></h3>
+                                 </div>
+                                 <a  [routerLink]= "['/flightSearchForm']" class="kl-card-avatar kl-md kl-pm kl-slow kl-hide"><img class="kl-b-circle kl-b-4 kl-slow kl-spin " src="assets/planefix.png"></a>
+                             </div>
+                         </div>
+                         <hr>
+        </div><!-- column end -->
+        <div class="col-1"></div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-5">
+          <hr>
+          <div class=" kl-card kl-xl kl-reveal kl-fade kl-show kl-slide-in kl-shine kl-reveal kl-hide kl-spin">
+              <div class="kl-card-block kl-lg bg-light  kl-overlay">
+                  <div class="kl-background">
+                     <img  src="assets/ironman3.png">
+                  </div>
+                  <div class="kl-card-item kl-pbl kl-show text-primary kl-txt-shadow">
+                      <div class="kl-figure-block">
+                      </div>
+                  </div>
+                  <div class="kl-card-item kl-pbr kl-show text-primary kl-txt-shadow">
+                      <div class="kl-figure-block">
+                      </div>
+                  </div>
+                  <div class="kl-card-item kl-pm kl-show text-black kl-txt-shadow text-center">
+                      <h3 class="mb-0"><b>Car Hire</b></h3>
+                  </div>
+                  <a href="#" class="kl-card-avatar kl-md kl-pm kl-slow kl-hide"><img class="kl-b-circle kl-b-4 kl-slow kl-spin" src="assets/car2.png"></a>
+              </div>
+          </div>
+          <!-- card end -->
+             <div class=" kl-card kl-xl kl-reveal kl-fade kl-show kl-slide-in kl-shine kl-reveal kl-hide kl-spin">
+                 <div class="kl-card-block kl-lg bg-light  kl-overlay">
+                     <div class="kl-background">
+                          <img src="assets/ironman3.png">
+                     </div>
+                     <div class="kl-card-item kl-pbl kl-show text-primary kl-txt-shadow">
+                         <div class="kl-figure-block">
+                         </div>
+                     </div>
+                     <div class="kl-card-item kl-pbr kl-show text-primary kl-txt-shadow">
+                         <div class="kl-figure-block">
+                         </div>
+                     </div>
+                     <div class="kl-card-item kl-pm kl-show text-black kl-txt-shadow text-center">
+                         <h3 class="mb-0"><b>Holiday</b></h3>
+                     </div>
+                     <a href="#" class="kl-card-avatar kl-md kl-pm kl-slow kl-hide"><img class="kl-b-circle kl-b-4 kl-slow kl-spin" src="assets/hol.png"></a>
+                 </div>
+             </div>
+ <!-- card end -->
+ <div class=" kl-card kl-xl kl-reveal kl-fade kl-show kl-slide-in kl-shine kl-reveal kl-hide kl-spin">
+     <div class="kl-card-block kl-lg bg-light  kl-overlay">
+         <div class="kl-background ">
+              <img  src="assets/ironman3.png">
+         </div>
+         <div class="kl-card-item kl-pbl kl-show text-primary kl-txt-shadow">
+             <div class="kl-figure-block">
+             </div>
+         </div>
+         <div class="kl-card-item kl-pbr kl-show text-primary kl-txt-shadow">
+             <div class="kl-figure-block">
+             </div>
+         </div>
+         <div class="kl-card-item kl-pm kl-show text-black kl-txt-shadow text-center">
+             <h3 class="mb-0"><b>Hotel</b></h3>
+         </div>
+         <a href="#" class="kl-card-avatar kl-md kl-pm kl-slow kl-hide"><img class="kl-b-circle kl-b-4 kl-slow kl-spin" src="assets/hotel.png"></a>
+     </div>
+ </div>
+
+ <hr>
+
+
+             <!-- card end -->
+
+        </div><!-- column end -->
+
+        <div class="col-1"></div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-5">
+
+        </div><!-- column end -->
+
+        <div class="col-1"></div>
+
+    </div>
+
+</article>
+</body>
