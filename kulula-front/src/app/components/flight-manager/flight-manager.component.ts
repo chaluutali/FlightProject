@@ -9,12 +9,20 @@ import { Router } from '@angular/router';
 })
 export class FlightManagerComponent implements OnInit {
   scheduledFlight :any;
-  traveller: any;
+  travellers: any;
   extras: any;
   fares: any;
   cart: any;
   seat: any;
+  reference: any;
 
+
+  firstName: String = '';
+  lastName: String = '';
+  emailAddress: String = '';
+  gender: boolean;
+  mobileNumber: String = '';
+  dateOfBirth: Date;
 
   flightNumber: number;
   carrierName: string;
@@ -31,12 +39,7 @@ export class FlightManagerComponent implements OnInit {
   businessPrice: number;
 
 
-  firstName: string;
-  lastName: string;
-  emailAddress: string;
-  gender: boolean;
-  mobileNumber: string;
-  dateOfBirth: Date;
+
 
   extraBagPrice: number;
   travelCover: number;
@@ -51,6 +54,7 @@ export class FlightManagerComponent implements OnInit {
 
 
   fareType: string;
+  numberOfTravellers: number;
   numberOfCheckedBaggage: number;
   preFlightCancellationFee: number;
   flightChangesFee: number;
@@ -64,25 +68,35 @@ export class FlightManagerComponent implements OnInit {
   totalSeat: number;
   seatType: string;
   seatId: number;
+  seatPrice: number = 0;
+  fRowPrice: any;
+  frontPrice: any;
+  sZonePrice: any;
+  eRowPrice: any;
+  backPrice: any;
+  seatPrices: any;
 
-  reference: any;
+
+
 
   constructor(private scheduledFlightService: ScheduledFlightService, private _router: Router) { }
 
   ngOnInit() {
-      console.log(localStorage.getItem('userFlightDB'));
+
 
     this.scheduledFlightService.getClientCart().subscribe((res)=>{
 
           localStorage.setItem('cartDB', JSON.stringify(res));
 
           this.cart = JSON.parse(localStorage.getItem('cartDB'));
-    this.reference = JSON.parse(localStorage.getItem('searchLogDateId'));
+
     this.scheduledFlight = JSON.parse(localStorage.getItem('userFlightDB'));
-    this.traveller = JSON.parse(localStorage.getItem('traveller'));
+    this.travellers = JSON.parse(localStorage.getItem('travellerList'));
     this.extras = JSON.parse(localStorage.getItem('extrasDB'));
     this.fares = JSON.parse(localStorage.getItem('faresDB'));
-    this.seat = JSON.parse(localStorage.getItem('seatDB'));
+    this.seat = JSON.parse(localStorage.getItem('seatList'));
+    this.seatPrices = JSON.parse(localStorage.getItem('seatPrices'));
+    this.reference = JSON.parse(localStorage.getItem('searchLogDateId'));
 
     this.flightNumber = this.scheduledFlight.flightNumber;
     this.carrierName = this.scheduledFlight.carrierName;
@@ -99,12 +113,7 @@ export class FlightManagerComponent implements OnInit {
     this.businessPrice = this.scheduledFlight.businessPrice;
 
 
-    this.firstName = this.traveller.firstName;
-    this.lastName = this.traveller.lastName;
-    this.emailAddress = this.traveller.emailAddress;
-    this.gender = this.traveller.gender;
-    this.mobileNumber = this.traveller.mobileNumber;
-    this.dateOfBirth = this.traveller.dateOfBirth;
+
 
 
     this.extraBagPrice =   this.extras.extraBagPrice;
@@ -119,6 +128,7 @@ export class FlightManagerComponent implements OnInit {
     this.totalSlowXsLounge =   this.extras.totalSlowXsLounge;
 
     this.fareType = this.fares.fareType;
+    this.numberOfTravellers = this.travellers.length;
     this.numberOfCheckedBaggage = this.fares.numberOfCheckedBaggage;
     this.preFlightCancellationFee = this.fares.preFlightCancellationFee;
     this.flightChangesFee = this.fares.flightChangesFee;
@@ -129,39 +139,49 @@ export class FlightManagerComponent implements OnInit {
     this.passengerServiceCharge2 = this.fares.passengerServiceCharge;
     this.fuelSurCharge = this.fares.fuelSurCharge;
 
-    if (this.seat.seatType === "Back")
+
+    this.fRowPrice = this.seatPrices.frontRowPrice;
+    this.frontPrice = this.seatPrices.standardFrontPrice;
+    this.eRowPrice = this.seatPrices.exitRowPrice;
+    this.sZonePrice = this.seatPrices.stretchZonePrice;
+    this.backPrice = this.seatPrices.standardBackPrice;
+
+    var i;
+    for (i = 0; i < this.seat.length; i++)
     {
-      this.seatType = "Back (Standard)";
-      this.totalSeat = this.seat.standardBackPrice;
-      this.seatId = this.seat.seatId;
-    }
-    if (this.seat.seatType === "eRow")
-    {
-      this.seatType = "Exit Row (Extra legroom)";
-      this.totalSeat = this.seat.exitRowPrice;
-      this.seatId = this.seat.seatId;
-    }
-    if (this.seat.seatType === "sZone")
-    {
-      this.seatType = "Stretch Zone (Extra legroom)";
-      this.totalSeat = this.seat.stretchZonePrice;
-      this.seatId = this.seat.seatId;
-    }
-    if (this.seat.seatType === "Front")
-    {
-      this.seatType = "Front (Standard)";
-      this.totalSeat = this.seat.standardFrontPrice;
-      this.seatId = this.seat.seatId;
-    }
-    if (this.seat.seatType === "fRow")
-    {
-      this.seatType = "Front Row (Extra legroom)";
-      this.totalSeat = this.seat.frontRowPrice;
-      this.seatId = this.seat.seatId;
-    }
+      if (this.seat[i].seatType === "Back")
+        {
+          this.seat[i].seatType = "Standard (Back)";
+          this.seatPrice = this.seatPrice + this.backPrice;
+
+        }
+        if (this.seat[i].seatType === "eRow")
+          {
+            this.seat[i].seatType = "Exit Row (Extra Legroom)";
+            this.seatPrice = this.seatPrice + this.eRowPrice;
+
+          }
+          if (this.seat[i].seatType === "sZone")
+            {
+              this.seat[i].seatType = "Stretch Zone (Extra Legroom)";
+              this.seatPrice = this.seatPrice + this.sZonePrice;
+
+            }
+            if (this.seat[i].seatType === "Front")
+              {
+                this.seat[i].seatType = "Standard (Front)";
+                this.seatPrice = this.seatPrice + this.frontPrice;
+
+              }
+              if (this.seat[i].seatType === "fRow")
+                {
+                  this.seat[i].seatType = "Front Row (Extra Legroom)";
+                  this.seatPrice = this.seatPrice +this.fRowPrice;
+
+                }
+              }
 
     });
-
   }
 
 
