@@ -14,9 +14,9 @@ export class ExtrasComponent implements OnInit {
   travelCover: 0;
   slowXSLoungePrice: 0;
   passengerServiceCharge: number;
-  numExtraBag: number;
-  numTravelCover: number;
-  numSlowXsLounge: number;
+  numExtraBag: number = 0;
+  numTravelCover: number = 0;
+  numSlowXsLounge: number = 0;
   totalExtraBags: number = 0;
   totalTravelCover: number = 0;
   totalSlowXsLounge: number = 0;

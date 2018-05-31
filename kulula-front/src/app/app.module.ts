@@ -35,6 +35,7 @@ import { Loader2Component } from './components/loader2/loader2.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ListOfTravellersComponent } from './components/list-of-travellers/list-of-travellers.component';
 import { ListOfSeatsComponent } from './components/list-of-seats/list-of-seats.component';
+import { ThemesComponent } from './components/themes/themes.component';
 
 
 
@@ -56,7 +57,8 @@ const appRoutes: Routes =[
   {path: 'flightmanager', component: FlightManagerComponent },
   {path: 'loading', component: LoaderComponent },
   {path: 'manageflightitinerary', component: ItinerarySearchComponent },
-  {path: 'loading2', component: Loader2Component }
+  {path: 'loading2', component: Loader2Component },
+  {path: 'theme', component: ThemesComponent }
 
 
 ]
@@ -85,7 +87,8 @@ const appRoutes: Routes =[
     Loader2Component,
     FooterComponent,
     ListOfTravellersComponent,
-    ListOfSeatsComponent
+    ListOfSeatsComponent,
+    ThemesComponent
 
   ],
   imports: [
