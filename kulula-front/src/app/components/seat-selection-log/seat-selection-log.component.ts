@@ -21,11 +21,12 @@ export class SeatSelectionLogComponent implements OnInit {
   backPrice: any;
 
   SeatList= [];
+  SeatList2 = [];
   travellerCount: number = 0;
   showContinue: boolean = false;
   showSeats: boolean = true;
 
-
+  currentSeat: number;
 
 
   constructor(private scheduledFlightService: ScheduledFlightService,  private _router: Router) { }
@@ -48,6 +49,8 @@ export class SeatSelectionLogComponent implements OnInit {
 
 
 backSelected(i){
+  this.currentSeat = i;
+  localStorage.setItem('currentSeat', JSON.stringify(this.currentSeat));
   var _searchForm = JSON.parse(localStorage.getItem('flightSearchForm'));
   if(_searchForm.numberOfAdults == null){_searchForm.numberOfAdults = 0;}
   console.log(_searchForm.numberOfAdults);
@@ -67,6 +70,13 @@ backSelected(i){
   this.scheduledFlightService.submitSeat(seatSelection).subscribe((result)=>{
     this.SeatList.push(seatSelection);
     this.travellerCount = this.travellerCount + 1;
+
+    if(this.travellerCount != totalTravellers){
+      this.SeatList2.push(seatSelection);
+      localStorage.setItem('seatList2', JSON.stringify(this.SeatList2));
+      console.log(this.SeatList2);
+    }
+
     if(this.travellerCount === totalTravellers)
     {
       this.showSeats = false;
@@ -79,6 +89,8 @@ backSelected(i){
 
 }
 eRowSelected(i){
+  this.currentSeat = i;
+  localStorage.setItem('currentSeat', JSON.stringify(this.currentSeat));
   var _searchForm = JSON.parse(localStorage.getItem('flightSearchForm'));
   if(_searchForm.numberOfAdults == null){_searchForm.numberOfAdults = 0;}
   console.log(_searchForm.numberOfAdults);
@@ -98,6 +110,19 @@ eRowSelected(i){
   this.scheduledFlightService.submitSeat(seatSelection).subscribe((result)=>{
     this.SeatList.push(seatSelection);
     this.travellerCount = this.travellerCount + 1;
+
+    if(this.travellerCount != totalTravellers){
+      this.SeatList2.push(seatSelection);
+      localStorage.setItem('seatList2', JSON.stringify(this.SeatList2));
+      console.log(this.SeatList2);
+    }
+
+    if(this.travellerCount != totalTravellers){
+      this.SeatList2.push(seatSelection);
+      localStorage.setItem('seatList2', JSON.stringify(this.SeatList2));
+      console.log(this.SeatList2);
+    }
+
     if(this.travellerCount === totalTravellers)
     {
       this.showSeats = false;
@@ -109,6 +134,8 @@ eRowSelected(i){
 
 }
 sZoneSelected(i){
+  this.currentSeat = i;
+  localStorage.setItem('currentSeat', JSON.stringify(this.currentSeat));
   var _searchForm = JSON.parse(localStorage.getItem('flightSearchForm'));
   if(_searchForm.numberOfAdults == null){_searchForm.numberOfAdults = 0;}
   console.log(_searchForm.numberOfAdults);
@@ -128,6 +155,13 @@ sZoneSelected(i){
   this.scheduledFlightService.submitSeat(seatSelection).subscribe((result)=>{
     this.SeatList.push(seatSelection);
     this.travellerCount = this.travellerCount + 1;
+
+    if(this.travellerCount != totalTravellers){
+      this.SeatList2.push(seatSelection);
+      localStorage.setItem('seatList2', JSON.stringify(this.SeatList2));
+      console.log(this.SeatList2);
+    }
+
     if(this.travellerCount === totalTravellers)
     {
       this.showSeats = false;
@@ -139,6 +173,8 @@ sZoneSelected(i){
 
 }
 frontSelected(i){
+  this.currentSeat = i;
+  localStorage.setItem('currentSeat', JSON.stringify(this.currentSeat));
   var _searchForm = JSON.parse(localStorage.getItem('flightSearchForm'));
   if(_searchForm.numberOfAdults == null){_searchForm.numberOfAdults = 0;}
   console.log(_searchForm.numberOfAdults);
@@ -158,6 +194,13 @@ frontSelected(i){
   this.scheduledFlightService.submitSeat(seatSelection).subscribe((result)=>{
     this.SeatList.push(seatSelection);
     this.travellerCount = this.travellerCount + 1;
+
+    if(this.travellerCount != totalTravellers){
+      this.SeatList2.push(seatSelection);
+      localStorage.setItem('seatList2', JSON.stringify(this.SeatList2));
+      console.log(this.SeatList2);
+    }
+
     if(this.travellerCount === totalTravellers)
     {
       this.showSeats = false;
@@ -169,6 +212,8 @@ frontSelected(i){
 
 }
 fRSelected(i){
+  this.currentSeat = i;
+  localStorage.setItem('currentSeat', JSON.stringify(this.currentSeat));
   var _searchForm = JSON.parse(localStorage.getItem('flightSearchForm'));
   if(_searchForm.numberOfAdults == null){_searchForm.numberOfAdults = 0;}
   console.log(_searchForm.numberOfAdults);
@@ -188,6 +233,13 @@ var _selectedFlight = JSON.parse(localStorage.getItem('userFlightDB'));
   this.scheduledFlightService.submitSeat(seatSelection).subscribe((result)=>{
     this.SeatList.push(seatSelection);
     this.travellerCount = this.travellerCount + 1;
+
+    if(this.travellerCount != totalTravellers){
+      this.SeatList2.push(seatSelection);
+      localStorage.setItem('seatList2', JSON.stringify(this.SeatList2));
+      console.log(this.SeatList2);
+    }
+
     if(this.travellerCount === totalTravellers)
     {
       this.showSeats = false;
@@ -205,6 +257,19 @@ onContinue(){
       setTimeout( function  myFunction(){
       location.href= 'http://localhost:4200/extras'
     }, 1800);
+
+}
+receiveMessage($event){
+
+  this.SeatList = $event;
+  this.travellerCount = this.travellerCount - 1;
+  this.showSeats = true;
+  this.showContinue = false;
+  var deletedSeat = JSON.parse(localStorage.getItem('currentSeat'));
+  this.scheduledFlightService.removeSeat(deletedSeat).subscribe((res)=>{
+
+  });
+
 
 }
 

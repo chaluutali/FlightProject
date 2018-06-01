@@ -158,5 +158,17 @@ getSeatById(id): Observable<any> {
      return this.httpClient.get('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+_searchLogDateId+'/flight/'+_userFlight.scheduledFlightId+'/seatselectionlog/'+id,{headers: headers})
 
 }
+removeSeat(id): Observable<any>{
+  var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  var _searchLogDateId = JSON.parse(localStorage.getItem('searchLogDateId'));
+  var _userFlight = JSON.parse(localStorage.getItem('userFlightDB'));
+  let headers = new HttpHeaders({'Content-Type': 'application/json'});
+     return this.httpClient.get('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+_searchLogDateId+'/flight/'+_userFlight.scheduledFlightId+'/seatselectionlog/'+id,{headers: headers})
+
+
+
+
+
+}
 
 }

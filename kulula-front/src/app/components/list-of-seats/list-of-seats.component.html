@@ -5,8 +5,8 @@
         <td><b>{{i+1}}.</b></td>
         <td>{{travellers[i].firstName}} {{travellers[i].lastName}}</td>
         <td>Seat: {{seat.seatId + 1}}</td>
-        <td>Type: {{seat.seatType}}</td>
-        <td><input type="submit" value="Change" class="btn btn-outline-primary " (click) ="onChange()" ></td>
+        <td>Type: {{seat.seatType | seatType}}</td>
+        <td><input type="submit" value="Change" class="btn btn-outline-primary " (click) ="onChange(i)" ></td>
     </table>
   </div>
 </div>

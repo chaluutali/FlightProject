@@ -38,7 +38,7 @@
 
   <h2 style="text-align: center"><b *ngIf = "showSeats === true">Available</b><b> Seats</b><small *ngIf = "showSeats === true">...pick a seat/s from the options below</small></h2>
   <hr>
-  <app-list-of-seats [listOfSeats] = "this.SeatList"></app-list-of-seats>
+  <app-list-of-seats [listOfSeats] = "this.SeatList" (messageEvent) = "receiveMessage($event)"></app-list-of-seats>
   <hr>
 </div>
 

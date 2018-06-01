@@ -36,6 +36,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ListOfTravellersComponent } from './components/list-of-travellers/list-of-travellers.component';
 import { ListOfSeatsComponent } from './components/list-of-seats/list-of-seats.component';
 import { ThemesComponent } from './components/themes/themes.component';
+import { SeatTypePipe } from './pipes/seat-type.pipe';
 
 
 
@@ -88,7 +89,8 @@ const appRoutes: Routes =[
     FooterComponent,
     ListOfTravellersComponent,
     ListOfSeatsComponent,
-    ThemesComponent
+    ThemesComponent,
+    SeatTypePipe
 
   ],
   imports: [

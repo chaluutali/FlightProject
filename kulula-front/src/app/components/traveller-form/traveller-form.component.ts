@@ -25,6 +25,8 @@ export class TravellerFormComponent implements OnInit {
   showContinue: boolean = false;
   showSubmit: boolean = true;
 
+  currentTravelEmail: String;
+
   constructor(private validateService: ValidateService,private scheduledFlightService: ScheduledFlightService, private flashMessagesService: FlashMessagesService, private userDataService: UserDataService, private _router: Router) { }
 
   ngOnInit() {
@@ -61,6 +63,8 @@ export class TravellerFormComponent implements OnInit {
 
   onSubmit(){
     var _searchLogDateId = JSON.parse(localStorage.getItem('searchLogDateId'));
+    this.currentTravelEmail = (this.emailAddress + _searchLogDateId);
+    localStorage.setItem('currentTravelEmail', JSON.stringify(this.currentTravelEmail));
     const traveller = {
       firstName: this.firstName,
       lastName: this.lastName,
@@ -136,6 +140,20 @@ export class TravellerFormComponent implements OnInit {
       setTimeout( function  myFunction(){
       location.href= 'http://localhost:4200/seat'
     }, 1800);
+
+
+  }
+  receiveMessage($event){
+
+    this.travellerList = $event;
+    this.travellerCount = this.travellerCount - 1;
+    document.getElementById("myDiv").style.display = "block";
+    this.showSubmit = true;
+    this.showContinue = false;
+    var deletedTraveller = JSON.parse(localStorage.getItem('currentTravelEmail'));
+    this.userDataService.removeTravel(deletedTraveller).subscribe((res)=>{
+
+    });
 
 
   }

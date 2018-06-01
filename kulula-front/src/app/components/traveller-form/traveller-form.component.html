@@ -31,7 +31,7 @@
 			    <h1 class="panel-title "><i class="far fa-user"></i> <b>Who's Flying?</b><small>...you or someone else?</small></h1>
         </div>
           <hr>
-          <app-list-of-travellers [listLength] = "this.travellerList"></app-list-of-travellers>
+          <app-list-of-travellers [listLength] = "this.travellerList"   (messageEvent) = "receiveMessage($event)" ></app-list-of-travellers>
           <hr>
 			 		<div class="panel-body" id="myDiv">
 			    	<form #frm= "ngForm" role="form" >
