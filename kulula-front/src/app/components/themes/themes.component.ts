@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import{Router} from '@angular/router';
 
 @Component({
   selector: 'app-themes',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThemesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit() {
+    console.log(localStorage.getItem('currentUser'));
   }
     pulse(){
 
@@ -29,6 +31,12 @@ export class ThemesComponent implements OnInit {
         literia(){
 
             document.getElementById("theme").setAttribute("href", "https://bootswatch.com/4/litera/bootstrap.min.css");
+
+          }
+          back(){
+
+          var _currentUser =  JSON.parse(localStorage.getItem('currentUser'));
+            this._router.navigate(['profile/'+ _currentUser.emailAddress]);
 
           }
 

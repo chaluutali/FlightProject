@@ -1,6 +1,18 @@
 body {
     background: #dedede;
 }
+
+.mybtn{
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto
+  /* margin-left: 40px; */
+
+}
+
+
 .stepper{
   margin-top: 140px;
 
