@@ -46,21 +46,15 @@
               </div>
                 <div>
                 <span><i class="fas fa-arrow-alt-circle-right"></i> <b>Departure From : </b></span>
-                <select class="btn-outline-info"  data-width="auto" [(ngModel)]="destinationFrom" name = "destinationFrom">
-                  <option value = "Johannesburg">Johannesburg</option>
-                  <option value = "CapeTown">CapeTown</option>
-                  <option value = "Durban">Durban</option>
-                  <option value = "PortElizabeth">PortElizabeth</option>
+                <select class="btn-outline-info"  data-width="auto" [(ngModel)]="destinationFrom" name = "destinationFrom" (change)="omitAirport()">
+                  <option *ngFor = "let airport of airports; let i = index" [value] = "airport.airportName" >{{airport.airportName}}</option>
                 </select>
               </div>
               <hr>
                 <div>
                 <span><i class="fas fa-arrow-alt-circle-right"></i><b> Destination To : </b></span>
-                <select class="btn-outline-info"  data-width="auto"  [(ngModel)]="destinationTo" name = "destinationTo">
-                  <option  value = "PortElizabeth">PortElizabeth</option>
-                  <option  value = "Johannesburg">Johannesburg</option>
-                  <option  value = "CapeTown">CapeTown</option>
-                  <option  value = "Durban">Durban</option>
+                <select class="btn-outline-info"  data-width="auto"  [(ngModel)]="destinationTo" name = "destinationTo" >
+                <option *ngFor = "let airport of airports2" [value] = "airport.airportName" >{{airport.airportName}}</option>
                 </select>
               </div>
 			    			</div>
@@ -69,7 +63,7 @@
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
                        <span><b> Adults : </b></span>
-			    						<input type="number" name="numberOfAdults" [(ngModel)]="numberOfAdults"  class="form-control" placeholder= '1' min="1" max="9">
+			    						<input type="number" name="numberOfAdults" [(ngModel)]="numberOfAdults"  class="form-control" placeholder= '0' min="1" max="9" required>
 
 			    					</div>
 			    				</div>

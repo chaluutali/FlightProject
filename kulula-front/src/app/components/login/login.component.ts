@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
                }
 
                     this.router.navigate(['loading']);
-                    // localStorage.setItem('currentUser', result);
                     setTimeout( function  myFunction(){
                     location.href= 'http://localhost:4200/profile/'+ loginUser.emailAddress
                   }, 1800);

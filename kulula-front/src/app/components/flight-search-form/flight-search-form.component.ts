@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {UserDataService} from '../../services/user-data.service';
+import {ScheduledFlightService} from '../../services/scheduled-flight.service';
 import {FlightSearchForm} from './flight-search-form';
 import{Router} from '@angular/router';
+import {Airport} from './airport';
 
 
 @Component({
@@ -24,8 +26,9 @@ export class FlightSearchFormComponent implements OnInit {
   currentDate: Date;
   td: any;
 
-
-  constructor(private userDataService: UserDataService, private _router: Router
+  airports: Airport[];
+  airports2 = [];
+  constructor(private userDataService: UserDataService, private _router: Router, private scheduledFlightService: ScheduledFlightService
    ) { }
 
   ngOnInit() {
@@ -40,9 +43,6 @@ export class FlightSearchFormComponent implements OnInit {
        var today = [year, month, day].join('-')
        this.td = today;
        document.getElementById("datefield").setAttribute("min", today);
-
-       console.log(today);
-
 
 
     localStorage.removeItem('cartDB');
@@ -67,6 +67,13 @@ export class FlightSearchFormComponent implements OnInit {
     console.log(localStorage.getItem('flightSearchForm'));
     console.log(localStorage.getItem('fares'));
     console.log(localStorage.getItem('currentUser'));
+    this.scheduledFlightService.getAllAirports().subscribe((response)=>{
+
+       this.airports = response;
+      console.log(this.airports);
+
+    });
+
 
   }
 
@@ -103,6 +110,19 @@ location.href= 'http://localhost:4200/flights'
 }, 1800);
 
 }
+omitAirport(){
+
+    this.airports2 = [];
+  for (var i = 0; i < this.airports.length; i++) {
+    if(this.airports[i].airportName != this.destinationFrom){
+    this.airports2.push(this.airports[i]);
+  }
+
+}
+
+  console.log(this.airports2);
+}
+
 
 
 }

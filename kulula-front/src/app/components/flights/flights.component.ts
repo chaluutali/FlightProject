@@ -3,7 +3,6 @@ import {ScheduledFlightService} from '../../services/scheduled-flight.service';
 import {ScheduledFlight} from './scheduled-flight';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-flights',
   templateUrl: './flights.component.html',
@@ -62,11 +61,8 @@ export class FlightsComponent implements OnInit {
 
   showReturnDate() {
 
-    //if(this.tripType === "Return"){
-      document.getElementById("returnDate").setAttribute("style", "display:block");
-    //}
+        document.getElementById("returnDate").setAttribute("style", "display:block");
 
-    //document.getElementById("returnDate").setAttribute("style", "display:none");
 
 }
 

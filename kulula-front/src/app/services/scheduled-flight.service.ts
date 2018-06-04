@@ -164,10 +164,10 @@ removeSeat(id): Observable<any>{
   var _userFlight = JSON.parse(localStorage.getItem('userFlightDB'));
   let headers = new HttpHeaders({'Content-Type': 'application/json'});
      return this.httpClient.get('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+_searchLogDateId+'/flight/'+_userFlight.scheduledFlightId+'/seatselectionlog/'+id,{headers: headers})
-
-
-
-
+}
+getAllAirports(): Observable<any> {
+    let headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.httpClient.get('http://localhost:8080/airport',{headers: headers})
 
 }
 
