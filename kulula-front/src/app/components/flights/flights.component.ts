@@ -16,6 +16,8 @@ export class FlightsComponent implements OnInit {
   userFlight: any;
   id: number;
 
+  departureDate: Date;
+  returnDate: Date;
   constructor(private scheduledFlightService: ScheduledFlightService, private _router: Router) { }
 
   ngOnInit() {
@@ -323,7 +325,21 @@ this.scheduledFlightService.getFlight(id).subscribe((result)=>{
 });
 }
 
+onUpdate(){
 
+  const searchlog = {
+
+    departureDate: this.departureDate,
+    returnDate: this.returnDate
+
+  }
+  this.scheduledFlightService.getAllFlightsBySearchUpdate(searchlog).subscribe((res)=>{
+
+    this.scheduledFlights = res;
+
+  });
+
+}
 
 
 

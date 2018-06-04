@@ -170,5 +170,12 @@ getAllAirports(): Observable<any> {
     return this.httpClient.get('http://localhost:8080/airport',{headers: headers})
 
 }
+getAllFlightsBySearchUpdate(searchlog): Observable<any> {
+  var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  var _searchLogDateId = JSON.parse(localStorage.getItem('searchLogDateId'));
+  let headers = new HttpHeaders({'Content-Type': 'application/json'});
+     return this.httpClient.post('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+ _searchLogDateId +'/searchbyreturn', JSON.stringify(searchlog),{headers: headers})
+
+}
 
 }

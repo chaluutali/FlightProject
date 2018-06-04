@@ -58,7 +58,7 @@ public class ScheduledFlightService {
 
 	public List<ScheduledFlight> searchByReturnDate(SearchLog searchLog) {
 		List<ScheduledFlight> scheduledFlights = new ArrayList<>();
-		 scheduledFlightRepository.searchByReturnDate(searchLog.getDestinationFrom(),searchLog.getDestinationTo(),searchLog.getReturnDate())
+		 scheduledFlightRepository.searchByReturnDate(searchLog.getReturnDate())
 		 .forEach(scheduledFlights::add);
 		 return scheduledFlights;
 	}

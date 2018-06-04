@@ -24,9 +24,9 @@ public interface ScheduledFlightRepository extends CrudRepository<ScheduledFligh
 	
 	
 	@Query(
-	        value = "SELECT * FROM scheduled_flight where departure_from = :destinationFrom AND arrival_destination = :destinationTo AND departure_date >= :returnDate", 
+	        value = "SELECT * FROM scheduled_flight where departure_date >= :returnDate AND fare_type IS NULL", 
 	        nativeQuery=true
 	    )
-		List<ScheduledFlight> searchByReturnDate( @Param("destinationFrom") String destinationFrom,@Param("destinationTo") String destinationTo, @Param ("returnDate") Date returnDate);
+		List<ScheduledFlight> searchByReturnDate( @Param ("returnDate") Date returnDate);
 
 }
