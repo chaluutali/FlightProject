@@ -132,9 +132,9 @@ export class TravellerFormComponent implements OnInit {
     }
   }
   onContinue(){
-    var cart = JSON.parse(localStorage.getItem('paid'));
-    console.log(cart);
-    if(cart == null)
+    var payment = JSON.parse(localStorage.getItem('paid'));
+    
+    if(payment == null)
     {
 
           this._router.navigate(['loading']);
@@ -153,7 +153,7 @@ export class TravellerFormComponent implements OnInit {
 
     }
 
-    
+
 
 
   }

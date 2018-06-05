@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -204,6 +205,14 @@ public class SeatSelectionController
 	public void deleteSeatSelectionLog(@PathVariable int seatSelectionId) 
 	{
 		seatSelectionLogService.deleteSeatSelectionLog(seatSelectionId);
+	}
+	
+	
+	@Transactional
+	@RequestMapping(method = RequestMethod.DELETE, value = "/user/{emailAddress}/searchlog/{searchLogDateId}/flight/{flightId}/seatselectionlog/bysearchlogdate")
+	public void deleteSeatbylogdate(@PathVariable String searchLogDateId) 
+	{
+		seatSelectionLogService.deleteSeatbylogdate(searchLogDateId);
 	}
 
 }

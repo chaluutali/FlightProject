@@ -12,4 +12,6 @@ public interface SeatSelectionLogRepository  extends CrudRepository<SeatSelectio
 
 	Optional<SeatSelectionLog> findBySearchLogSearchLogDateId(String searchLogDateId);
 
+	void deleteBySearchLogSearchLogDateId(String searchLogDateId);
+
 }

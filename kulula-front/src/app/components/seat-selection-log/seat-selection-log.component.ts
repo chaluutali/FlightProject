@@ -32,8 +32,7 @@ export class SeatSelectionLogComponent implements OnInit {
   constructor(private scheduledFlightService: ScheduledFlightService,  private _router: Router) { }
   ngOnInit() {
 
-    localStorage.removeItem('cartDB');
-    localStorage.removeItem('extrasDB');
+
      this.scheduledFlightService.getSeatLog().subscribe((result)=>{
        this.aircraft = result;
        this.fRowPrice = this.aircraft.fRowPrice;
@@ -252,11 +251,27 @@ var _selectedFlight = JSON.parse(localStorage.getItem('userFlightDB'));
 }
 onContinue(){
 
-      this._router.navigate(['loading']);
+  var payment = JSON.parse(localStorage.getItem('paid'));
+  //
+  if(payment == null)
+  {
 
-      setTimeout( function  myFunction(){
-      location.href= 'http://localhost:4200/extras'
-    }, 1800);
+        this._router.navigate(['loading']);
+          setTimeout( function  myFunction(){
+          location.href= 'http://localhost:4200/extras'
+        }, 1800);
+  }
+  else
+  {
+          this._router.navigate(['loading']);
+          setTimeout( function  myFunction(){
+          location.href= 'http://localhost:4200/flightmanager'
+        }, 1800);
+
+
+
+  }
+
 
 }
 receiveMessage($event){
@@ -265,8 +280,7 @@ receiveMessage($event){
   this.travellerCount = this.travellerCount - 1;
   this.showSeats = true;
   this.showContinue = false;
-  var deletedSeat = JSON.parse(localStorage.getItem('currentSeat'));
-  this.scheduledFlightService.removeSeat(deletedSeat).subscribe((res)=>{
+  this.scheduledFlightService.removeSeat().subscribe((res)=>{
 
   });
 

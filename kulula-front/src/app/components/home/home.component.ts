@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
 
 
       var user = JSON.parse(localStorage.getItem('currentUser'));
-      if(user.emailAddress != "default@default.com")
+      if(user != null)
       {
 
 

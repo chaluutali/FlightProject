@@ -56,6 +56,14 @@ getExtras(): Observable<any> {
      return this.httpClient.get('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+_searchLogDateId+'/flight/'+_userFlight.scheduledFlightId+'/extras/1',{headers: headers})
 
 }
+removeExtras(): Observable<any> {
+  var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  var _searchLogDateId = JSON.parse(localStorage.getItem('searchLogDateId'));
+  var _userFlight = JSON.parse(localStorage.getItem('userFlightDB'));
+  let headers = new HttpHeaders({'Content-Type': 'application/json'});
+     return this.httpClient.delete('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+_searchLogDateId+'/flight/'+_userFlight.scheduledFlightId+'/extras/bysearchlog',{headers: headers})
+
+}
 
 submitExtras(extras): Observable<any> {
   var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -158,12 +166,12 @@ getSeatById(id): Observable<any> {
      return this.httpClient.get('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+_searchLogDateId+'/flight/'+_userFlight.scheduledFlightId+'/seatselectionlog/'+id,{headers: headers})
 
 }
-removeSeat(id): Observable<any>{
+removeSeat(): Observable<any>{
   var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
   var _searchLogDateId = JSON.parse(localStorage.getItem('searchLogDateId'));
   var _userFlight = JSON.parse(localStorage.getItem('userFlightDB'));
   let headers = new HttpHeaders({'Content-Type': 'application/json'});
-     return this.httpClient.get('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+_searchLogDateId+'/flight/'+_userFlight.scheduledFlightId+'/seatselectionlog/'+id,{headers: headers})
+     return this.httpClient.delete('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+_searchLogDateId+'/flight/'+_userFlight.scheduledFlightId+'/seatselectionlog/bysearchlogdate',{headers: headers})
 }
 getAllAirports(): Observable<any> {
     let headers = new HttpHeaders({'Content-Type': 'application/json'});

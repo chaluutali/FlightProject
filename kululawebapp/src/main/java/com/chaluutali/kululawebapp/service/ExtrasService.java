@@ -43,6 +43,10 @@ public class ExtrasService {
 		
 		return extrasRepository.findBySearchLogSearchLogDateId(searchLogDateId);
 	}
+
+	public void deleteExtrasBySearchLogDate(String searchLogDateId) {
+		extrasRepository.deleteBySearchLogSearchLogDateId(searchLogDateId);
+	}
 	
 
 }

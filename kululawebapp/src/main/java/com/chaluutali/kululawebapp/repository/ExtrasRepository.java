@@ -12,4 +12,6 @@ public interface ExtrasRepository extends CrudRepository<Extras, Integer> {
 
 	Optional<Extras> findBySearchLogSearchLogDateId(String searchLogDateId);
 
+	void deleteBySearchLogSearchLogDateId(String searchLogDateId);
+
 }

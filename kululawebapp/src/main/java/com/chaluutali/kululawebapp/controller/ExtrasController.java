@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -77,5 +78,13 @@ public class ExtrasController
 	{
 		extrasService.deleteExtras(extrasId);
 	}
+	
+	@Transactional
+	@RequestMapping(method = RequestMethod.DELETE, value = "/user/{emailAddress}/searchlog/{searchLogDateId}/flight/{flightId}/extras/bysearchlog")
+	public void deleteExtrasBySearchLogDate(@PathVariable String searchLogDateId) 
+	{
+		extrasService.deleteExtrasBySearchLogDate(searchLogDateId);
+	}
+
 
 }

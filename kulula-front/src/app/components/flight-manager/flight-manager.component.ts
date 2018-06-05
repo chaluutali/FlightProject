@@ -195,7 +195,28 @@ editTraveller(){
     setTimeout( function  myFunction(){
     location.href= 'http://localhost:4200/traveller'
   }, 1800);
-  
+
+}
+editSeat(){
+
+  for (var i = 0; i < this.seat.length; i++)
+  {
+      this.scheduledFlightService.removeSeat().subscribe((res)=>{});
+  }
+  this._router.navigate(['loading']);
+    setTimeout( function  myFunction(){
+    location.href= 'http://localhost:4200/seat'
+  }, 1800);
+
+}
+editExtras(){
+
+this.scheduledFlightService.removeExtras().subscribe((res)=>{});
+this._router.navigate(['loading']);
+  setTimeout( function  myFunction(){
+  location.href= 'http://localhost:4200/extras'
+}, 1800);
+
 }
 
 }

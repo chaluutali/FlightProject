@@ -49,4 +49,10 @@ public class SeatSelectionLogService {
 		return seatSelectionLogRepository.findBySearchLogSearchLogDateId(searchLogDateId);
 	}
 
+	public void deleteSeatbylogdate(String searchLogDateId) {
+
+		seatSelectionLogRepository.deleteBySearchLogSearchLogDateId(searchLogDateId);
+		
+	}
+
 }
