@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ScheduledFlightService} from '../../services/scheduled-flight.service';
+import {UserDataService} from '../../services/user-data.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -79,7 +80,7 @@ export class FlightManagerComponent implements OnInit {
 
 
 
-  constructor(private scheduledFlightService: ScheduledFlightService, private _router: Router) { }
+  constructor(private scheduledFlightService: ScheduledFlightService, private _router: Router, private userDataService: UserDataService) { }
 
   ngOnInit() {
 
@@ -184,6 +185,17 @@ export class FlightManagerComponent implements OnInit {
     });
   }
 
+editTraveller(){
 
+    for (var i = 0; i < this.travellers.length; i++)
+    {
+  this.userDataService.removeTravel(this.travellers[i].emailAddress).subscribe((res)=>{});
+    }
+    this._router.navigate(['loading']);
+    setTimeout( function  myFunction(){
+    location.href= 'http://localhost:4200/traveller'
+  }, 1800);
+  
+}
 
 }

@@ -42,10 +42,6 @@ export class TravellerFormComponent implements OnInit {
            var today = [year, month, day].join('-')
            document.getElementById("datefield").setAttribute("max", today);
 
-    localStorage.removeItem('cartDB');
-    localStorage.removeItem('traveller');
-    localStorage.removeItem('extrasDB');
-    localStorage.removeItem('seatDB');
 
     console.log(localStorage.getItem('cartDB'));
     console.log(localStorage.getItem('traveller'));
@@ -136,10 +132,28 @@ export class TravellerFormComponent implements OnInit {
     }
   }
   onContinue(){
-    this._router.navigate(['loading']);
-      setTimeout( function  myFunction(){
-      location.href= 'http://localhost:4200/seat'
-    }, 1800);
+    var cart = JSON.parse(localStorage.getItem('paid'));
+    console.log(cart);
+    if(cart == null)
+    {
+
+          this._router.navigate(['loading']);
+            setTimeout( function  myFunction(){
+            location.href= 'http://localhost:4200/seat'
+          }, 1800);
+    }
+    else
+    {
+            this._router.navigate(['loading']);
+            setTimeout( function  myFunction(){
+            location.href= 'http://localhost:4200/flightmanager'
+          }, 1800);
+
+
+
+    }
+
+    
 
 
   }

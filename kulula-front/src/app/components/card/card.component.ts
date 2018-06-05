@@ -49,6 +49,7 @@ export class CardComponent implements OnInit {
 
     }
 
+    localStorage.setItem('paid', JSON.stringify(card));
     this.scheduledFlightService.payForFlight(card).subscribe((result)=>{
 
       this._router.navigate(['loading']);

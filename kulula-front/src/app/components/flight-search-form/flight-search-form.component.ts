@@ -55,6 +55,7 @@ export class FlightSearchFormComponent implements OnInit {
     localStorage.removeItem('searchLogDateId');
     localStorage.removeItem('flightSearchForm');
     localStorage.removeItem('fares');
+    localStorage.removeItem('paid');
 
     console.log(localStorage.getItem('cartDB'));
     console.log(localStorage.getItem('selectedFlight'));
