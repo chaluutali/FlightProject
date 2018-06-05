@@ -68,7 +68,7 @@ export class TravellerFormComponent implements OnInit {
     const traveller = {
       firstName: this.firstName,
       lastName: this.lastName,
-      emailAddress: (this.emailAddress + _searchLogDateId),
+      emailAddress: this.emailAddress,
       gender: this.gender,
       mobileNumber: this.mobileNumber,
       dateOfBirth: this.dateOfBirth,
