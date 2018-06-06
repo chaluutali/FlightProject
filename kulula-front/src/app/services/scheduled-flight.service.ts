@@ -56,14 +56,7 @@ getExtras(): Observable<any> {
      return this.httpClient.get('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+_searchLogDateId+'/flight/'+_userFlight.scheduledFlightId+'/extras/1',{headers: headers})
 
 }
-removeExtras(): Observable<any> {
-  var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
-  var _searchLogDateId = JSON.parse(localStorage.getItem('searchLogDateId'));
-  var _userFlight = JSON.parse(localStorage.getItem('userFlightDB'));
-  let headers = new HttpHeaders({'Content-Type': 'application/json'});
-     return this.httpClient.delete('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+_searchLogDateId+'/flight/'+_userFlight.scheduledFlightId+'/extras/bysearchlog',{headers: headers})
 
-}
 
 submitExtras(extras): Observable<any> {
   var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -199,6 +192,14 @@ getAllFlightsBySearchUpdate(searchlog): Observable<any> {
   var _searchLogDateId = JSON.parse(localStorage.getItem('searchLogDateId'));
   let headers = new HttpHeaders({'Content-Type': 'application/json'});
      return this.httpClient.post('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+ _searchLogDateId +'/searchbyreturn', JSON.stringify(searchlog),{headers: headers})
+
+}
+removeExtras(): Observable<any> {
+  var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  var _searchLogDateId = JSON.parse(localStorage.getItem('searchLogDateId'));
+  var _userFlight = JSON.parse(localStorage.getItem('userFlightDB'));
+  let headers = new HttpHeaders({'Content-Type': 'application/json'});
+     return this.httpClient.delete('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+_searchLogDateId+'/flight/'+_userFlight.scheduledFlightId+'/extras/bysearchlog',{headers: headers})
 
 }
 

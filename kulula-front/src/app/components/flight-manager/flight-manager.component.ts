@@ -210,15 +210,27 @@ editSeat(){
 
 }
 editExtras(){
-this.scheduledFlightService.deleteItinerary().subscribe((res)=>{});
-this.scheduledFlightService.deleteClientCart().subscribe((res)=>{});
-this.scheduledFlightService.removeExtras().subscribe((res)=>{});
+this.scheduledFlightService.deleteItinerary().subscribe((res)=>{
+
+this.scheduledFlightService.deleteClientCart().subscribe((res)=>{
 
 
-this._router.navigate(['loading']);
-  setTimeout( function  myFunction(){
-  location.href= 'http://localhost:4200/extras'
-}, 1800);
+this.scheduledFlightService.removeExtras().subscribe((res)=>{
+
+
+  this._router.navigate(['loading']);
+    setTimeout( function  myFunction(){
+    location.href= 'http://localhost:4200/extras'
+  }, 1800);
+
+});
+});
+
+});
+
+
+
+
 
 }
 
