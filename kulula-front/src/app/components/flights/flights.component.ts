@@ -18,6 +18,8 @@ export class FlightsComponent implements OnInit {
 
   departureDate: Date;
   returnDate: Date;
+
+  td: any;
   constructor(private scheduledFlightService: ScheduledFlightService, private _router: Router) { }
 
   ngOnInit() {
@@ -29,6 +31,7 @@ export class FlightsComponent implements OnInit {
      if (month.length < 2) month = '0' + month;
      if (day.length < 2) day = '0' + day;
      var today = [year, month, day].join('-')
+     this.td = today;
      document.getElementById("datefield").setAttribute("min", today);
 
     localStorage.removeItem('cartDB');
