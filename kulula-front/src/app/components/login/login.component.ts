@@ -19,6 +19,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     // reset login status
+    var theme = JSON.parse(localStorage.getItem('currentTheme'));
+    if(theme != null){
+      document.getElementById("theme").setAttribute("href", theme);
+    }
         this.authService.logout();
   }
   login2() {

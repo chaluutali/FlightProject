@@ -10,6 +10,10 @@ export class ItinerarySearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    var theme = JSON.parse(localStorage.getItem('currentTheme'));
+    if(theme != null){
+      document.getElementById("theme").setAttribute("href", theme);
+    }
   }
 
 }

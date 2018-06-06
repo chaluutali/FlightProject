@@ -23,6 +23,10 @@ export class FlightsComponent implements OnInit {
   constructor(private scheduledFlightService: ScheduledFlightService, private _router: Router) { }
 
   ngOnInit() {
+     var theme = JSON.parse(localStorage.getItem('currentTheme'));
+     if(theme != null){
+       document.getElementById("theme").setAttribute("href", theme);
+     }
 
      var d = new Date(),
      month = '' + (d.getMonth() + 1),

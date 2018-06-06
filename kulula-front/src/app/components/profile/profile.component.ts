@@ -23,6 +23,10 @@ export class ProfileComponent {
   constructor( private userDataService: UserDataService, private route: ActivatedRoute, private router: Router,
         private authService: AuthService) {
 
+          var theme = JSON.parse(localStorage.getItem('currentTheme'));
+          if(theme != null){
+            document.getElementById("theme").setAttribute("href", theme);
+          }
 
           localStorage.removeItem('cartDB');
           localStorage.removeItem('selectedFlight');
@@ -67,7 +71,7 @@ export class ProfileComponent {
    logout(): void {
 
      this.authService.logout();
-     this.router.navigate(['login']);
+     this.router.navigate(['']);
 
     }
 

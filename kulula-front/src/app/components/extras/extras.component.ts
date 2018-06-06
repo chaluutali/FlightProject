@@ -26,6 +26,10 @@ export class ExtrasComponent implements OnInit {
 
   ngOnInit() {
 
+    var theme = JSON.parse(localStorage.getItem('currentTheme'));
+    if(theme != null){
+      document.getElementById("theme").setAttribute("href", theme);
+    }
 
 
      this.scheduledFlightService.getExtras().subscribe((result)=>{

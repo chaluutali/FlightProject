@@ -30,6 +30,10 @@ export class TravellerFormComponent implements OnInit {
   constructor(private validateService: ValidateService,private scheduledFlightService: ScheduledFlightService, private flashMessagesService: FlashMessagesService, private userDataService: UserDataService, private _router: Router) { }
 
   ngOnInit() {
+    var theme = JSON.parse(localStorage.getItem('currentTheme'));
+    if(theme != null){
+      document.getElementById("theme").setAttribute("href", theme);
+    }
 
            document.getElementById("myDiv").style.display = "block";
 
@@ -133,7 +137,7 @@ export class TravellerFormComponent implements OnInit {
   }
   onContinue(){
     var payment = JSON.parse(localStorage.getItem('paid'));
-    
+
     if(payment == null)
     {
 

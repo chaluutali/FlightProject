@@ -17,6 +17,10 @@ export class ListOfSeatsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    var theme = JSON.parse(localStorage.getItem('currentTheme'));
+    if(theme != null){
+      document.getElementById("theme").setAttribute("href", theme);
+    }
 
       var listOfTravellers = JSON.parse(localStorage.getItem('travellerList'));
           this.travellers = listOfTravellers;

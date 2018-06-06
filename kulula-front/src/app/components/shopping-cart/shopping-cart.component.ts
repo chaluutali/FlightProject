@@ -51,6 +51,10 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private scheduledFlightService: ScheduledFlightService,  private _router: Router) { }
 
   ngOnInit() {
+    var theme = JSON.parse(localStorage.getItem('currentTheme'));
+    if(theme != null){
+      document.getElementById("theme").setAttribute("href", theme);
+    }
 
 
     this.travellers = JSON.parse(localStorage.getItem('travellerList'));

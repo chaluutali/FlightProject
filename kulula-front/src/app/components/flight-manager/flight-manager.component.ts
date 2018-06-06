@@ -83,6 +83,10 @@ export class FlightManagerComponent implements OnInit {
   constructor(private scheduledFlightService: ScheduledFlightService, private _router: Router, private userDataService: UserDataService) { }
 
   ngOnInit() {
+    var theme = JSON.parse(localStorage.getItem('currentTheme'));
+    if(theme != null){
+      document.getElementById("theme").setAttribute("href", theme);
+    }
 
 
     this.scheduledFlightService.getClientCart().subscribe((res)=>{

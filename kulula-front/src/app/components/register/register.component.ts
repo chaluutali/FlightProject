@@ -28,6 +28,10 @@ export class RegisterComponent implements OnInit {
    }
 
   ngOnInit() {
+    var theme = JSON.parse(localStorage.getItem('currentTheme'));
+    if(theme != null){
+      document.getElementById("theme").setAttribute("href", theme);
+    }
 
 
   }

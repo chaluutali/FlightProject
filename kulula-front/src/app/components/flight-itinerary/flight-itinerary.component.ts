@@ -82,6 +82,10 @@ export class FlightItineraryComponent implements OnInit {
   constructor(private scheduledFlightService: ScheduledFlightService, private _router: Router) { }
 
   ngOnInit() {
+    var theme = JSON.parse(localStorage.getItem('currentTheme'));
+    if(theme != null){
+      document.getElementById("theme").setAttribute("href", theme);
+    }
 
 
     this.scheduledFlightService.getClientCart().subscribe((res)=>{
@@ -211,7 +215,7 @@ export class FlightItineraryComponent implements OnInit {
 
       }
 
-    
+
 
     });
 

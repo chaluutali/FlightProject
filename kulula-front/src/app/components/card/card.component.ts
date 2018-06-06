@@ -24,6 +24,11 @@ export class CardComponent implements OnInit {
 
   ngOnInit() {
 
+    var theme = JSON.parse(localStorage.getItem('currentTheme'));
+    if(theme != null){
+      document.getElementById("theme").setAttribute("href", theme);
+    }
+
     var d = new Date(),
     month = '' + (d.getMonth() + 1),
     day = '' + d.getDate(),

@@ -32,6 +32,10 @@ export class FlightSearchFormComponent implements OnInit {
    ) { }
 
   ngOnInit() {
+    var theme = JSON.parse(localStorage.getItem('currentTheme'));
+    if(theme != null){
+      document.getElementById("theme").setAttribute("href", theme);
+    }
 
 
        var d = new Date(),

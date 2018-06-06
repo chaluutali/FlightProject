@@ -31,6 +31,10 @@ export class SeatSelectionLogComponent implements OnInit {
 
   constructor(private scheduledFlightService: ScheduledFlightService,  private _router: Router) { }
   ngOnInit() {
+    var theme = JSON.parse(localStorage.getItem('currentTheme'));
+    if(theme != null){
+      document.getElementById("theme").setAttribute("href", theme);
+    }
 
 
      this.scheduledFlightService.getSeatLog().subscribe((result)=>{

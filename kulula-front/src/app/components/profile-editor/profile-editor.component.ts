@@ -75,6 +75,10 @@ export class ProfileEditorComponent {
       }
   constructor(private validateService: ValidateService, private flashMessagesService: FlashMessagesService, private userDataService: UserDataService, private _router: Router) {
 
+    var theme = JSON.parse(localStorage.getItem('currentTheme'));
+    if(theme != null){
+      document.getElementById("theme").setAttribute("href", theme);
+    }
     var _currentUser =  JSON.parse(localStorage.getItem('currentUser'));
     this.userDataService.getUserProfile(_currentUser.emailAddress).subscribe((user)=>{
     this.userName = user.userName;
