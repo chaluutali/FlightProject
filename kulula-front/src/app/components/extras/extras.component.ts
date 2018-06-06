@@ -96,30 +96,10 @@ console.log(this.totalTravelCover);
     }
       localStorage.setItem('extras', JSON.stringify(extrasLocal));
      this.scheduledFlightService.submitExtras(extras).subscribe((response)=>{
-
-       var payment = JSON.parse(localStorage.getItem('paid'));
-
-       if(payment == null)
-       {
-
-
                 this._router.navigate(['loading']);
                 setTimeout( function  myFunction(){
                 location.href= 'http://localhost:4200/cart'
               }, 1800);
-
-       }
-       else
-       {
-               this._router.navigate(['loading']);
-               setTimeout( function  myFunction(){
-               location.href= 'http://localhost:4200/flightmanager'
-             }, 1800);
-
-
-
-       }
-
      });
 
 

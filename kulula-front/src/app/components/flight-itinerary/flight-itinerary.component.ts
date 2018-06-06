@@ -191,10 +191,27 @@ export class FlightItineraryComponent implements OnInit {
     }
     this.scheduledFlightService.saveItinerary(flightItinerary).subscribe((result)=>{
 
-      this._router.navigate(['loading']);
-      setTimeout( function  myFunction(){
-      location.href= 'http://localhost:4200/payment'
-    }, 1800);
+      var payment = JSON.parse(localStorage.getItem('paid'));
+      if(payment == null)
+      {
+
+            this._router.navigate(['loading']);
+              setTimeout( function  myFunction(){
+              location.href= 'http://localhost:4200/payment'
+            }, 1800);
+      }
+      else
+      {
+              this._router.navigate(['loading']);
+              setTimeout( function  myFunction(){
+              location.href= 'http://localhost:4200/flightmanager'
+            }, 1800);
+
+
+
+      }
+
+    
 
     });
 

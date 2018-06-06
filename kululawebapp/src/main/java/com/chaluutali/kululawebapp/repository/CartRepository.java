@@ -12,4 +12,6 @@ public interface CartRepository extends CrudRepository<ShoppingCart, Integer> {
 
 	Optional<ShoppingCart> findBySearchLogSearchLogDateId(String searchlogId);
 
+	void deleteBySearchLogSearchLogDateId(String searchLogDateId);
+
 }

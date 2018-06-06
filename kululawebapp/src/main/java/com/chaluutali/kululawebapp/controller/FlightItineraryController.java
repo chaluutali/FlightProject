@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -55,10 +56,13 @@ public class FlightItineraryController
 		flightItineraryService.addFlightItinerary(flightItinerary);
 	}
 	
+	@Transactional
 	@RequestMapping(method = RequestMethod.DELETE, value = "/user/{emailAddress}/searchlog/{searchLogDateId}/flight/{flightId}/flightItinerary/{bookingReference}")
 	public void deleteFlightItinerary(@PathVariable String bookingReference) 
 	{
 		flightItineraryService.deleteFlightItinerary(bookingReference);
 	}
+	
+	
 
 }

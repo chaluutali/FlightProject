@@ -252,7 +252,6 @@ var _selectedFlight = JSON.parse(localStorage.getItem('userFlightDB'));
 onContinue(){
 
   var payment = JSON.parse(localStorage.getItem('paid'));
-  //
   if(payment == null)
   {
 

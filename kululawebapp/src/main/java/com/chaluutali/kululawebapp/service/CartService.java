@@ -44,4 +44,9 @@ public class CartService {
 		return cartRepository.findBySearchLogSearchLogDateId(searchlogId);
 	}
 
+	public void deleteCartBySearchLogDate(String searchLogDateId) {
+		cartRepository.deleteBySearchLogSearchLogDateId(searchLogDateId);
+		
+	}
+
 }
