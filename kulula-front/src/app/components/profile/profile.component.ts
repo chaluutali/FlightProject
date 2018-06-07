@@ -28,16 +28,6 @@ export class ProfileComponent {
             document.getElementById("theme").setAttribute("href", theme);
           }
 
-          localStorage.removeItem('cartDB');
-          localStorage.removeItem('selectedFlight');
-          localStorage.removeItem('traveller');
-          localStorage.removeItem('extrasDB');
-          localStorage.removeItem('faresDB');
-          localStorage.removeItem('seatDB');
-          localStorage.removeItem('userFlightDB');
-          localStorage.removeItem('searchLogDateId');
-          localStorage.removeItem('flightSearchForm');
-          localStorage.removeItem('fares');
 
 
           console.log(localStorage.getItem('cartDB'));

@@ -1,5 +1,5 @@
 <body>
-<hr>  
+<hr>
 <article class="container-fluid mt-5 mb-5">
     <div class="row">
         <div class="col-12">
@@ -36,9 +36,9 @@
                     <p class="card-text">Mobile Number : {{mobileNumber}} </p>
                     <div class="kl-card-social text-center">
                         <hr class="hw">
-                        <a href="#"><img class="kl-b-2 kl-spin" src="assets/twitter.jpg"></a>
-                        <a href="#"><img class="kl-b-2 kl-spin" src="assets/gmail.jpg"></a>
-                        <a href="#"><img class="kl-b-2 kl-spin" src="assets/facebook.jpg"></a>
+                        <a href="https://twitter.com/login?lang=en"><img class="kl-b-2 kl-spin" src="assets/twitter.jpg"></a>
+                        <a href="https://mail.google.com"><img class="kl-b-2 kl-spin" src="assets/gmail.jpg"></a>
+                        <a href="https://www.facebook.com/"><img class="kl-b-2 kl-spin" src="assets/facebook.jpg"></a>
                     </div>
                     <div class="kl-card-item kl-ptr kl-show mr-1 mt-1"><button class="badge badge-danger" (click) ="logout()"> Log Out </button></div>
                 </div>
@@ -104,7 +104,7 @@
                  </div>
              </div>
          </div>
-         <a href="#" class="kl-card-avatar kl-md kl-pm kl-slow"><img class="kl-b-info kl-b-circle kl-b-3 kl-reveal kl-slow kl-shadow-br kl-fade" src="assets/bank2.jpg"></a>
+         <a [routerLink]= "['/travelbank']" class="kl-card-avatar kl-md kl-pm kl-slow"><img class="kl-b-info kl-b-circle kl-b-3 kl-reveal kl-slow kl-shadow-br kl-fade" src="assets/bank2.jpg"></a>
          <div class="kl-background">
              <img src="assets/tb.jpg">
          </div>
@@ -127,7 +127,7 @@
                              </div>
                          </div>
                      </div>
-                     <a href="#" class="kl-card-avatar kl-md kl-pm kl-slow"><img class="kl-b-info kl-b-circle kl-b-3 kl-reveal kl-slow kl-shadow-br kl-fade" src="assets/fans.png"></a>
+                     <a [routerLink]= "['/fanmail']" class="kl-card-avatar kl-md kl-pm kl-slow"><img class="kl-b-info kl-b-circle kl-b-3 kl-reveal kl-slow kl-shadow-br kl-fade" src="assets/fans.png"></a>
                      <div class="kl-background">
                          <img src="assets/fm2.jpg">
                      </div>

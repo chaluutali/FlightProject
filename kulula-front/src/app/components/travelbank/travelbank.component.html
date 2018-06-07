@@ -1,0 +1,53 @@
+<div class="container">
+	<h1 class="panel-title" style="text-align: center"><i class="fas fa-dollar-sign"></i> Travel Bank </h1>
+	<hr>
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="hero-widget well well-sm">
+				<div class="icon">
+						 <i class="fas fa-plus-circle"></i>
+				</div>
+				<div class="options">
+					<a href="javascript:;" class="btn btn-outline-success btn-lg" > Add Funds</a>
+				</div>
+					<div class="options">
+							<a (click)='back()' class="btn btn-outline-primary btn-lg" ><i class="fas fa-angle-double-left"></i> Profile</a>
+					</div>
+			</div>
+
+		</div>
+        <div class="col-sm-3">
+            <div class="hero-widget well well-sm">
+                <div class="icon">
+                  <i class="fas fa-history"></i>
+                </div>
+                <div class="options">
+                    <a href="javascript:;" class="btn btn-default btn-lg"> View History</a>
+                </div>
+            </div>
+		</div>
+        <div class="col-sm-3">
+            <div class="hero-widget well well-sm">
+                <div class="icon">
+                     <i class="fas fa-address-card"></i>
+                </div>
+                <div class="options">
+                    <a href="javascript:;" class="btn btn-default btn-lg"> View Cards</a>
+                </div>
+            </div>
+    	</div>
+        <div class="col-sm-3">
+					<div class="hero-widget well well-sm">
+                <div class="icon">
+                    <i class="fas fa-money-check-alt"></i>
+                </div>
+                <div class="text">
+                    <var>{{currentBalance}}</var>
+                    <label class="text-muted">Current Balance</label>
+                </div>
+            </div>
+
+		</div>
+	</div>
+	<hr>
+</div>

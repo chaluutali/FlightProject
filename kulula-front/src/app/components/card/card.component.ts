@@ -20,10 +20,12 @@ export class CardComponent implements OnInit {
 	zipCode: string;
 	cardNumber: number;
 
+  currentBalance: number = 0;
+
   constructor(private scheduledFlightService: ScheduledFlightService, private _router: Router, private flashMessagesService: FlashMessagesService) { }
 
   ngOnInit() {
-
+    console.log(localStorage.getItem('userFlightDB'));
     var theme = JSON.parse(localStorage.getItem('currentTheme'));
     if(theme != null){
       document.getElementById("theme").setAttribute("href", theme);
@@ -42,7 +44,7 @@ export class CardComponent implements OnInit {
   makePayment(){
 
     const card = {
-
+      
       nameOnCard: this.nameOnCard,
       expirationDate: this.expirationDate,
       cvv: this.cvv,
@@ -51,17 +53,21 @@ export class CardComponent implements OnInit {
       city: this.city,
       zipCode: this.zipCode,
       cardNumber: this.cardNumber
-
     }
-
     localStorage.setItem('paid', JSON.stringify(card));
     this.scheduledFlightService.payForFlight(card).subscribe((result)=>{
 
-      this._router.navigate(['loading']);
-      setTimeout( function  myFunction(){
-      location.href= 'http://localhost:4200/flightmanager'
-    }, 1800);
+      const travelbank = {
+        currentBalance: this.currentBalance,
+      }
+        this.scheduledFlightService.saveTravelBank(travelbank).subscribe((res)=>{
 
+            this._router.navigate(['loading']);
+            setTimeout( function  myFunction(){
+            location.href= 'http://localhost:4200/flightmanager'
+          }, 1800);
+
+        });
 
     });
 

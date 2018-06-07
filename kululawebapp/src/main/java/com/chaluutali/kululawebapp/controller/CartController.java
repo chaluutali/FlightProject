@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.chaluutali.kululawebapp.objects.ScheduledFlight;
 import com.chaluutali.kululawebapp.objects.SearchLog;
-import com.chaluutali.kululawebapp.objects.SeatSelectionLog;
 import com.chaluutali.kululawebapp.objects.ShoppingCart;
 import com.chaluutali.kululawebapp.objects.User;
 import com.chaluutali.kululawebapp.service.CartService;

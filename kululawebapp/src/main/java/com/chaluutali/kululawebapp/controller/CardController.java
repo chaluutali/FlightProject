@@ -44,6 +44,7 @@ public class CardController
 	public void addCard(@PathVariable String emailAddress, @PathVariable String searchLogDateId, @PathVariable int flightId, @PathVariable String bookingReference,  @RequestBody Card card)
 	{
 		card.setFlightItinerary(new FlightItinerary (bookingReference, new ScheduledFlight(flightId, new SearchLog(searchLogDateId, new User(null,null,null,false,null,null,null, emailAddress)))));
+		card.setUser(new User(null,null,null,false,null,null,null, emailAddress));
 		cardService.addCard(card);
 	}
 	
@@ -51,6 +52,7 @@ public class CardController
 	public void updateCard(@PathVariable String emailAddress, @PathVariable String searchLogDateId, @PathVariable int flightId, @PathVariable String bookingReference, @PathVariable int cardNumber,  @RequestBody Card card) 
 	{
 		card.setFlightItinerary(new FlightItinerary (bookingReference, new ScheduledFlight(flightId, new SearchLog(searchLogDateId, new User(null,null,null,false,null,null,null, emailAddress)))));
+		card.setUser(new User(null,null,null,false,null,null,null, emailAddress));
 		cardService.addCard(card);
 	}
 	

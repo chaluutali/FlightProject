@@ -37,6 +37,8 @@ import { ListOfTravellersComponent } from './components/list-of-travellers/list-
 import { ListOfSeatsComponent } from './components/list-of-seats/list-of-seats.component';
 import { ThemesComponent } from './components/themes/themes.component';
 import { SeatTypePipe } from './pipes/seat-type.pipe';
+import { FanmailComponent } from './components/fanmail/fanmail.component';
+import { TravelbankComponent } from './components/travelbank/travelbank.component';
 
 
 
@@ -59,7 +61,9 @@ const appRoutes: Routes =[
   {path: 'loading', component: LoaderComponent },
   {path: 'manageflightitinerary', component: ItinerarySearchComponent },
   {path: 'loading2', component: Loader2Component },
-  {path: 'theme', component: ThemesComponent }
+  {path: 'theme', component: ThemesComponent },
+  {path: 'fanmail', component: FanmailComponent },
+  {path: 'travelbank', component: TravelbankComponent }
 
 
 ]
@@ -90,7 +94,9 @@ const appRoutes: Routes =[
     ListOfTravellersComponent,
     ListOfSeatsComponent,
     ThemesComponent,
-    SeatTypePipe
+    SeatTypePipe,
+    FanmailComponent,
+    TravelbankComponent
 
   ],
   imports: [

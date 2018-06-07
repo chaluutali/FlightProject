@@ -146,6 +146,23 @@ payForFlight(card): Observable<any> {
      return this.httpClient.post('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+_searchLogDateId+'/flight/'+_userFlight.scheduledFlightId+'/flightItinerary/'+_searchLogDateId+'/card', JSON.stringify(card),{headers: headers})
 
 }
+saveTravelBank(travelbank): Observable<any> {
+  var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  var _searchLogDateId = JSON.parse(localStorage.getItem('searchLogDateId'));
+  var _userFlight = JSON.parse(localStorage.getItem('userFlightDB'));
+  let headers = new HttpHeaders({'Content-Type': 'application/json'});
+     return this.httpClient.post('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+_searchLogDateId+'/flight/'+_userFlight.scheduledFlightId+'/flightItinerary/'+_searchLogDateId+'/travelbank', JSON.stringify(travelbank),{headers: headers})
+
+}
+getTravelBank(): Observable<any> {
+  var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  var _searchLogDateId = JSON.parse(localStorage.getItem('searchLogDateId'));
+  var _userFlight = JSON.parse(localStorage.getItem('userFlightDB'));
+  let headers = new HttpHeaders({'Content-Type': 'application/json'});
+     return this.httpClient.get('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+_searchLogDateId+'/flight/'+_userFlight.scheduledFlightId+'/flightitinerary/'+_searchLogDateId+'/travelbank',{headers: headers})
+
+
+}
 getSeatLog(): Observable<any> {
   let headers = new HttpHeaders({'Content-Type': 'application/json'});
      return this.httpClient.get('http://localhost:8080/aircraft/1',{headers: headers})

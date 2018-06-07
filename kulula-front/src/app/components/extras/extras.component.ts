@@ -25,7 +25,7 @@ export class ExtrasComponent implements OnInit {
   constructor(private scheduledFlightService: ScheduledFlightService, private _router: Router) { }
 
   ngOnInit() {
-
+    console.log(localStorage.getItem('userFlightDB'));
     var theme = JSON.parse(localStorage.getItem('currentTheme'));
     if(theme != null){
       document.getElementById("theme").setAttribute("href", theme);
