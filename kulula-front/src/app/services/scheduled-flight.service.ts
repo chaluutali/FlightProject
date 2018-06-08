@@ -106,6 +106,14 @@ deleteItinerary(): Observable<any> {
      return this.httpClient.delete('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+_searchLogDateId+'/flight/'+_userFlight.scheduledFlightId+'/flightItinerary/'+_searchLogDateId,{headers: headers})
 
 }
+getItinerarys(): Observable<any> {
+  var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  let headers = new HttpHeaders({'Content-Type': 'application/json'});
+     return this.httpClient.get('http://localhost:8080/user/'+_currentUser.emailAddress+'/flightitinerary/byemail',{headers: headers})
+
+
+}
+
 saveItinerary(Itinerary): Observable<any> {
   var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
   var _searchLogDateId = JSON.parse(localStorage.getItem('searchLogDateId'));
@@ -138,6 +146,13 @@ deleteClientCart(): Observable<any> {
      return this.httpClient.delete('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+_searchLogDateId+'/flight/'+_userFlight.scheduledFlightId+'/cart/bysearchlog',{headers: headers})
 
 }
+getCards(): Observable<any> {
+  var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  let headers = new HttpHeaders({'Content-Type': 'application/json'});
+     return this.httpClient.get('http://localhost:8080/user/'+_currentUser.emailAddress+'/cards',{headers: headers})
+
+
+}
 payForFlight(card): Observable<any> {
   var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
   var _searchLogDateId = JSON.parse(localStorage.getItem('searchLogDateId'));
@@ -160,6 +175,13 @@ getTravelBank(): Observable<any> {
   var _userFlight = JSON.parse(localStorage.getItem('userFlightDB'));
   let headers = new HttpHeaders({'Content-Type': 'application/json'});
      return this.httpClient.get('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+_searchLogDateId+'/flight/'+_userFlight.scheduledFlightId+'/flightitinerary/'+_searchLogDateId+'/travelbank',{headers: headers})
+
+
+}
+getTravelBankByUserEmail(): Observable<any> {
+  var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  let headers = new HttpHeaders({'Content-Type': 'application/json'});
+     return this.httpClient.get('http://localhost:8080/user/'+_currentUser.emailAddress+'/byemail',{headers: headers})
 
 
 }

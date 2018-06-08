@@ -42,6 +42,14 @@ public class FlightItineraryService {
 		
 	}
 
+	public List<FlightItinerary> getAllFlightItinerariesByEmail(String emailAddress) {
+
+		List<FlightItinerary> flightItineries = new ArrayList<>();
+		flightItineraryRepository.findByScheduledFlightSearchLogUserEmailAddress(emailAddress)
+		.forEach(flightItineries::add);
+		return flightItineries;
+	}
+
 	
 
 }

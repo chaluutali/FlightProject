@@ -40,4 +40,11 @@ public class CardService {
 		
 	}
 
+	public List<Card> getAllCardsByEmail(String emailAddress) {
+		List<Card> cards = new ArrayList<>();
+		cardRepository.findByUserEmailAddress(emailAddress)
+		.forEach(cards::add);
+		return cards;
+	}
+
 }

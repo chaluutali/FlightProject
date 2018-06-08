@@ -34,6 +34,12 @@ public class FlightItineraryController
 	{
 		return flightItineraryService.getAllFlightItineraries(flightId);
 	}
+	@RequestMapping("/user/{emailAddress}/flightitinerary/byemail")
+	public List<FlightItinerary> getAllFlightItinerariesByEmail(@PathVariable String emailAddress)
+	{
+		return flightItineraryService.getAllFlightItinerariesByEmail(emailAddress);
+	}
+	
 	
 	@RequestMapping("/user/{emailAddress}/searchlog/{searchLogDateId}/flight/{flightId}/flightitinerary/{bookingReference}")
 	public Optional<FlightItinerary> getFlightItinerary(@PathVariable String bookingReference) 

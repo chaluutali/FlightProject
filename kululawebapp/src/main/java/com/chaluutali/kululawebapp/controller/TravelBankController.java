@@ -34,6 +34,11 @@ public class TravelBankController
 		return travelBankService.getAllTravelBanks(bookingReference);
 	}
 	
+	@RequestMapping("/user/{emailAddress}/byemail")
+	public Optional<TravelBank> getTravelBankByEmail(@PathVariable String emailAddress) 
+	{
+		return travelBankService.getTravelBankByEmail(emailAddress);
+	}
 	@RequestMapping("/user/{emailAddress}/searchlog/{searchLogDateId}/flight/{flightId}/flightitinerary/{bookingReference}/travelbank/{travelBankId}")
 	public Optional<TravelBank> getTravelBank(@PathVariable int travelBankId) 
 	{

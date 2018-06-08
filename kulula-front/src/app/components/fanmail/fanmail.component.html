@@ -17,6 +17,7 @@
                           <a href="#myModal" data-toggle="modal"  title="Compose"    class="btn btn-compose">
                               Compose
                           </a>
+
                           <!-- Modal -->
                           <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" style="display: none;">
                               <div class="modal-dialog">
@@ -86,6 +87,7 @@
                               <a href="#"><i class=" fa fa-trash-o"></i> Trash</a>
                           </li>
                       </ul>
+                      <a (click)='back()' class="btn btn-outline-primary btn-lg" ><i class="fas fa-angle-double-left"></i> Profile</a>
                   </aside>
                   <aside class="lg-side">
                       <div class="inbox-head">
@@ -167,6 +169,8 @@
                           </tbody>
                           </table>
                       </div>
+
                   </aside>
+
               </div>
 </div>

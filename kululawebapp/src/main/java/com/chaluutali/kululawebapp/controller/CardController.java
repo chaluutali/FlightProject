@@ -33,6 +33,11 @@ public class CardController
 	{
 		return cardService.getAllCards(bookingReference);
 	}
+	@RequestMapping("/user/{emailAddress}/cards")
+	public List<Card> getAllCardsByEmail(@PathVariable String emailAddress)
+	{
+		return cardService.getAllCardsByEmail(emailAddress);
+	}
 	
 	@RequestMapping("/user/{emailAddress}/searchlog/{searchLogDateId}/flight/{flightId}/flightitinerary/{bookingReference}/card/{cardNumber}")
 	public Optional<Card> getCard(@PathVariable int cardNumber) 

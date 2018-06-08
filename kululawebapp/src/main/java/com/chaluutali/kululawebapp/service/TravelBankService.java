@@ -41,4 +41,9 @@ public class TravelBankService {
 		
 	}
 
+	public Optional<TravelBank> getTravelBankByEmail(String emailAddress) {
+		
+		return travelBankRepository.findByUserEmailAddress(emailAddress);
+	}
+
 }

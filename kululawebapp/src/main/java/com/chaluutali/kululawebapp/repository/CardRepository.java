@@ -8,4 +8,6 @@ public interface CardRepository extends CrudRepository<Card, Integer> {
 
 	Iterable<Card> findByFlightItineraryBookingReference(String bookingReference);
 
+	Iterable<Card> findByUserEmailAddress(String emailAddress);
+
 }

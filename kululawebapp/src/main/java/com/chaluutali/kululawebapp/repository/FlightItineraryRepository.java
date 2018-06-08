@@ -8,4 +8,8 @@ public interface FlightItineraryRepository extends CrudRepository<FlightItinerar
 
 	Iterable<FlightItinerary> findByScheduledFlightScheduledFlightId(Integer flightId);
 
+	
+
+	Iterable<FlightItinerary> findByScheduledFlightSearchLogUserEmailAddress(String emailAddress);
+
 }

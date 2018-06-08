@@ -1,5 +1,5 @@
 <div class="container">
-	<h1 class="panel-title" style="text-align: center"><i class="fas fa-dollar-sign"></i> Travel Bank </h1>
+	<h1 class="panel-title" style="text-align: center"> Travel Bank </h1>
 	<hr>
 	<div class="row">
 		<div class="col-sm-3">
@@ -16,13 +16,33 @@
 			</div>
 
 		</div>
+
+		<div class="col-sm-3">
+			<div class="hero-widget well well-sm">
+						<div class="icon">
+								<i class="fas fa-dollar-sign"></i>
+						</div>
+						<div class="text">
+								<var>{{currentBalance}}</var>
+								<label class="text-muted">Current Balance</label>
+						</div>
+				</div>
+
+	</div>
+
+
+
         <div class="col-sm-3">
             <div class="hero-widget well well-sm">
                 <div class="icon">
                   <i class="fas fa-history"></i>
                 </div>
+								<div class="text">
+									<var>{{numberOfItineraries}}</var>
+									<label class="text-muted">Number Of flights</label>
+								</div>
                 <div class="options">
-                    <a href="javascript:;" class="btn btn-default btn-lg"> View History</a>
+                    <a (click)='viewHistory()' class="btn btn-default btn-lg"> View History</a>
                 </div>
             </div>
 		</div>
@@ -31,23 +51,167 @@
                 <div class="icon">
                      <i class="fas fa-address-card"></i>
                 </div>
+								<div class="text">
+									<var>{{numberOfCards}}</var>
+									<label class="text-muted">Number Of Cards</label>
+								</div>
                 <div class="options">
-                    <a href="javascript:;" class="btn btn-default btn-lg"> View Cards</a>
+                    <a (click)='viewCard()' class="btn btn-default btn-lg"> View Cards</a>
                 </div>
+
             </div>
     	</div>
-        <div class="col-sm-3">
-					<div class="hero-widget well well-sm">
-                <div class="icon">
-                    <i class="fas fa-money-check-alt"></i>
-                </div>
-                <div class="text">
-                    <var>{{currentBalance}}</var>
-                    <label class="text-muted">Current Balance</label>
-                </div>
-            </div>
 
-		</div>
 	</div>
+	<hr>
+
+	<div *ngIf = "showHistory === true" >
+		<h2 style="text-align: center"><b>Flight History</b><small>...done some travelling have we?</small></h2>
+	  <hr>
+		 <table class = "table table-striped">
+			 <tr *ngFor = "let itineraries of itineraries; let i = index">
+			 <td><i class="fas fa-paper-plane"></i>  {{itineraries.bookingReference}}</td>
+			 <td>{{itineraries.scheduledFlight.carrierName}}</td>
+				 <td>{{itineraries.scheduledFlight.airCraftType}}</td>
+				 <td>{{itineraries.scheduledFlight.fare_Type}}</td>
+				 <td><i class="fas fa-arrow-alt-circle-right"></i> Departure From : {{itineraries.scheduledFlight.departureFrom}}</td>
+				 <td><i class="fas fa-arrow-alt-circle-right"></i> Destination To : {{itineraries.scheduledFlight.arrivalDestination}}</td>
+				 <td><i class="far fa-calendar-alt"></i> Travel Date : {{itineraries.scheduledFlight.departureDate}}</td>
+				 <td><i class="far fa-clock"></i> Time: {{itineraries.scheduledFlight.estimatedTimeOfArrival  | date: 'hh:mm:ss'}}</td>
+		</table>
+	</div>
+
+	<table class = "table table-striped" *ngIf = "showCards === true">
+		<div >
+
+			 <div >
+					 <img class="img-responsive " src="http://i76.imgup.net/accepted_c22e0.png">
+			 </div>
+		</div>
+				 <tr *ngFor = "let cards of cards; let i = index">
+								 <td class="panel-body">
+										 <form #frm= "ngForm" role="form" >
+												 <div class="row">
+														 <div class="col-xs-8 col-md-8 pull-right">
+																 <div class="form-group">
+
+																		 <div class="input-group">
+																				 <input
+																						 type="tel"
+																						 class="form-control"
+																						 name="cardNumber"
+																						 placeholder="Valid Card Number"
+																						[(ngModel)]="cards.cardNumber"
+																						 required
+																				 />
+																				 <span class="input-group-addon"></span>
+																		 </div>
+																 </div>
+														 </div>
+												 </div>
+												 <div class="row">
+													 <div class="col-xs-4 col-sm-4 col-md-4">
+																 <div class="form-group">
+
+																		 <input
+																				 type="date"
+																				 class="form-control"
+																				 name="expirationDate"
+
+																				 [(ngModel)]="cards.expirationDate"
+																				 required
+																				 id="datefield" min= ""
+																		 />
+																 </div>
+															 </div>
+
+														 <div class="col-xs-4 col-sm-4 col-md-4">
+																 <div class="form-group">
+
+																		 <input
+																				 type="tel"
+																				 class="form-control"
+																				 name="cvv"
+																				 placeholder="cvv"
+																				 [(ngModel)]="cards.cvv"
+																				 required
+																		 />
+																 </div>
+														 </div>
+												 </div>
+												 <div class="row">
+														 <div class="col-xs-12 col-sm-16 col-md-8 col-sm-offset-4 col-md-offset-8">
+
+
+															 <div class="row">
+
+																 <div class="col-xs-8 col-sm-8 col-md-8">
+
+																		 <input
+																				 type="text"
+																				 class="form-control"
+																				 name="nameOnCard"
+																				 placeholder="Card Owner Full Name"
+																				 [(ngModel)]="cards.nameOnCard"
+																				 required
+																		 />
+																		 <br>
+																		 <input
+																				 type="text"
+																				 class="form-control"
+																				 name="billingAddress"
+																				 placeholder="Billing Address"
+																				 [(ngModel)]="cards.billingAddress"
+																				 required
+																		 />
+																		 <hr>
+
+																		 <div class="col-xs-12">
+																				 <button class="btn-outline-primary btn-lg btn-block" type="button" (click)='updateCard()' >Save Changes</button>
+																				 <button class="btn-outline-danger btn-lg btn-block" type="button" (click)='deleteCard()' >Delete</button>
+
+																		 </div>
+
+
+
+
+																	</div>
+																 <div class="col-xs-4 col-sm-4 col-md-4">
+
+																		<input
+																				 type="text"
+																				 class="form-control"
+																				 name="country"
+																				 placeholder="Country"
+																				 [(ngModel)]="cards.country"
+																				 required
+																		 />
+																		 <hr>
+																		 <input
+																				 type="text"
+																				 class="form-control"
+																				 name="zipCode"
+																				 placeholder="Zip-Code"
+																				 [(ngModel)]="cards.zipCode"
+																				 required
+																		 />
+																		 <hr>
+																		 <input
+																				 type="text"
+																				 class="form-control"
+																				 name="city"
+																				 placeholder="City"
+																				 [(ngModel)]="cards.city"
+																				 required
+																		 />
+																		 <hr>
+																		 <br>
+																 </div>
+															 </div>
+														 </div>
+												 </div>
+										 </form>
+								 </td>
+						 </table>
 	<hr>
 </div>
