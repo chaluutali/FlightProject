@@ -241,5 +241,12 @@ removeExtras(): Observable<any> {
      return this.httpClient.delete('http://localhost:8080/user/'+_currentUser.emailAddress+'/searchlog/'+_searchLogDateId+'/flight/'+_userFlight.scheduledFlightId+'/extras/bysearchlog',{headers: headers})
 
 }
+getAllMail(): Observable<any> {
+  var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  let headers = new HttpHeaders({'Content-Type': 'application/json'});
+     return this.httpClient.get('http://localhost:8080/user/'+_currentUser.emailAddress+'/fanmail',{headers: headers})
+
+
+}
 
 }
