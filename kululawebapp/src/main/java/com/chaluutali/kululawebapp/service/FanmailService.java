@@ -19,7 +19,7 @@ public class FanmailService {
 	public List<Fanmail> getAllMail(String emailAddress) {
 
 		List<Fanmail> messages = new ArrayList<>();
-		fanmailRepository.findByUserEmailAddress(emailAddress)
+		fanmailRepository.findByReceiver(emailAddress)
 		.forEach(messages::add);
 		return messages;
 
@@ -37,6 +37,21 @@ public class FanmailService {
 	public void deleteMail(int fanmailId) {
 		fanmailRepository.deleteById(fanmailId);
 		
+	}
+
+	public List<Fanmail> getAllMails(String emailAddress) {
+		List<Fanmail> messages = new ArrayList<>();
+		fanmailRepository.findByUserEmailAddress(emailAddress)
+		.forEach(messages::add);
+		return messages;
+
+	}
+
+	public List<Fanmail> getAllMailSent(String emailAddress) {
+		List<Fanmail> messages = new ArrayList<>();
+		fanmailRepository.findBySender(emailAddress)
+		.forEach(messages::add);
+		return messages;
 	}
 
 }

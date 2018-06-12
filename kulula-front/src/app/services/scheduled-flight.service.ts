@@ -248,5 +248,33 @@ getAllMail(): Observable<any> {
 
 
 }
+getAllMails(): Observable<any> {
+  var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  let headers = new HttpHeaders({'Content-Type': 'application/json'});
+     return this.httpClient.get('http://localhost:8080/user/'+_currentUser.emailAddress+'/fanmails',{headers: headers})
+
+
+}
+getAllMailSent(): Observable<any> {
+  var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  let headers = new HttpHeaders({'Content-Type': 'application/json'});
+     return this.httpClient.get('http://localhost:8080/user/'+_currentUser.emailAddress+'/fanmail/sent',{headers: headers})
+
+
+}
+sendMail(fanmail): Observable<any> {
+  var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  let headers = new HttpHeaders({'Content-Type': 'application/json'});
+     return this.httpClient.post('http://localhost:8080/user/'+_currentUser.emailAddress+'/fanmail',JSON.stringify(fanmail),{headers: headers})
+
+
+}
+updateMail(fanmail): Observable<any> {
+  var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  let headers = new HttpHeaders({'Content-Type': 'application/json'});
+     return this.httpClient.put('http://localhost:8080/user/'+_currentUser.emailAddress+'/fanmail/'+fanmail.fanmailId,JSON.stringify(fanmail),{headers: headers})
+
+
+}
 
 }

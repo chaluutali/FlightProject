@@ -8,4 +8,8 @@ public interface FanmailRepository extends CrudRepository<Fanmail, Integer> {
 
 	Iterable<Fanmail> findByUserEmailAddress(String emailAddress);
 
+	Iterable<Fanmail> findByReceiver(String emailAddress);
+
+	Iterable<Fanmail> findBySender(String emailAddress);
+
 }

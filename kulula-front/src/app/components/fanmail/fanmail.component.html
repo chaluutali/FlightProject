@@ -19,17 +19,17 @@
                       </div>
                       <ul class="inbox-nav inbox-divider">
                           <li >
-                              <a  (click) = 'viewInbox()'><i class="fa fa-inbox"></i> Inbox <span class="label label-danger pull-right">2</span></a>
+                              <a  (click) = 'viewInbox()'><i class="fa fa-inbox"></i> Inbox <span class="label label-danger pull-right"> {{inboxCounter}}</span></a>
 
                           </li>
                           <li>
-                              <a href="#"><i class="fa fa-envelope"></i> Sent Mail</a>
+                              <a (click) = 'viewSentMail()'><i class="fa fa-envelope"></i> Sent Mail</a>
                           </li>
                           <li>
-                              <a href="#"><i class="fa fa-bookmark"></i> Important</a>
+                              <a (click) = 'viewImportantMail()'><i class="fa fa-bookmark"></i> Important</a>
                           </li>
                           <li>
-                              <a href="#"><i class=" fa fa-trash"></i> Trash</a>
+                              <a (click) = 'viewTrash()'><i class=" fa fa-trash"></i> Trash</a>
                           </li>
                           <li>
                               <a (click)='back()' ><i class="fas fa-user"></i> Profile</a>
@@ -85,7 +85,7 @@
                          </div>
                           <table class="table table-inbox table-hover">
                             <tbody *ngFor = "let messages of messages; let i = index">
-                              <tr class="unread"  *ngIf = "messages.viewed === false">
+                              <tr class="unread"  *ngIf = "messages.viewed === false" (click) = 'viewExtendedMessage(i)'>
                                   <td class="inbox-small-cells">
                                       <input type="checkbox" class="mail-checkbox">
                                   </td>
@@ -96,7 +96,7 @@
                                   <td class="view-message  text-right">{{messages.time | date: 'hh:mm:ss'}}</td>
 
                               </tr>
-                              <tr  *ngIf = "messages.viewed === true">
+                              <tr  *ngIf = "messages.viewed === true" (click) = 'viewExtendedMessage(i)'>
                                   <td class="inbox-small-cells">
                                       <input type="checkbox" class="mail-checkbox">
                                   </td>
@@ -110,8 +110,21 @@
                           </tbody>
                           </table>
                       </div>
+                      <div class="form-group" *ngIf = "showExtendedView === true">
+                          <div>
+                            <li class="btn btn-outline-primary" (click)='onReply()'>
+                                Reply
+                            </li>
+                            <li class="btn btn-outline-dark" (click)='moveToTrash()'>
+                                Move to Trash
+                            </li>
+                              <textarea rows="18" cols="30" class="form-control" wrap="hard" >
+  From: {{extendedMessage.sender}}                                                     Subject: {{extendedMessage.subject}}                                                   Time: {{extendedMessage.time | date: 'hh:mm:ss'}}
 
+
+  {{extendedMessage.message}}</textarea>
+                          </div>
+                      </div>
                   </aside>
-
               </div>
 </div>

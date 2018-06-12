@@ -28,6 +28,16 @@ public class FanmailController
 	{
 		return fanmailService.getAllMail(emailAddress);
 	}
+	@RequestMapping("/user/{emailAddress}/fanmails")
+	public List<Fanmail> getAllMails(@PathVariable String emailAddress)
+	{
+		return fanmailService.getAllMails(emailAddress);
+	}
+	@RequestMapping("/user/{emailAddress}/fanmail/sent")
+	public List<Fanmail> getAllMailSent(@PathVariable String emailAddress)
+	{
+		return fanmailService.getAllMailSent(emailAddress);
+	}
 	
 	@RequestMapping("/user/{emailAddress}/fanmail/{fanmailId}")
 	public Optional<Fanmail> getMail(@PathVariable int fanmailId) 
