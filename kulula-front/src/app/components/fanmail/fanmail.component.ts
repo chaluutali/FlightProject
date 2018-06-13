@@ -130,6 +130,7 @@ this.showExtendedView = false;
       this.showInbox = true;
       this.showComposer = false;
       this.showExtendedView = false;
+      this.importantMessages = [];
 
     });
   }
@@ -216,7 +217,7 @@ moveToTrash(){
 
 }
 markAsImportant(i){
-  this.extendedMessage = this.messages[i]
+
   this.showExtendedView = false;
   this.showInbox = true;
   this.showComposer = false;
