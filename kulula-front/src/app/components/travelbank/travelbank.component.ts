@@ -25,9 +25,12 @@ export class TravelbankComponent implements OnInit {
 
 
 showHistory: boolean = false;
+showAddFunds: boolean = false;
 showCards: boolean = false;
 numberOfCards: number;
 numberOfItineraries: number;
+
+fund: number = 0;
 
   constructor(private _router: Router, private scheduledFlightService: ScheduledFlightService) { }
 
@@ -67,12 +70,42 @@ numberOfItineraries: number;
   viewHistory(){
   this.showHistory = true;
   this.showCards = false;
+  this.showAddFunds = false;
 
   }
   viewCard(){
 
     this.showHistory = false;
     this.showCards = true;
+    this.showAddFunds = false;
+
+  }
+  viewFunds(){
+    this.showAddFunds = true;
+    this.showCards = false;
+    this.showHistory = false;
+  }
+  purchaseCredit(){
+
+          const travelbank = {
+            currentBalance: this.fund,
+          }
+
+    this.scheduledFlightService.addFundsToTravelBank(travelbank).subscribe((res)=>{
+
+      this.scheduledFlightService.getTravelBankByUserEmail().subscribe((result)=>{
+
+        this.currentBalance = result.currentBalance;
+        this.showAddFunds = false;
+        this.showCards = false;
+        this.showHistory = false;
+        this.fund = 0;
+
+        });
+
+    });
+
+
 
   }
 

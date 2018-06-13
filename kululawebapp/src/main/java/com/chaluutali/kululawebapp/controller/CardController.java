@@ -60,9 +60,20 @@ public class CardController
 		card.setUser(new User(null,null,null,false,null,null,null, emailAddress));
 		cardService.addCard(card);
 	}
+	@RequestMapping(method = RequestMethod.PUT, value = "/user/{emailAddress}/card/{cardNumber}")
+	public void updateCard(@PathVariable String emailAddress, @PathVariable int cardNumber,  @RequestBody Card card) 
+	{
+		card.setUser(new User(null,null,null,false,null,null,null, emailAddress));
+		cardService.addCard(card);
+	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, value = "/user/{emailAddress}/searchlog/{searchLogDateId}/flight/{flightId}/flightItinerary/{bookingReference}/card/{cardNumber}")
 	public void deleteCard(@PathVariable int cardNumber) 
+	{
+		cardService.deleteCard(cardNumber);
+	}
+	@RequestMapping(method = RequestMethod.DELETE, value = "/user/{emailAddress}/card/{cardNumber}")
+	public void deleteCardByProfile(@PathVariable int cardNumber) 
 	{
 		cardService.deleteCard(cardNumber);
 	}

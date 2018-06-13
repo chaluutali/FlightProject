@@ -185,6 +185,13 @@ getTravelBankByUserEmail(): Observable<any> {
 
 
 }
+addFundsToTravelBank(travelbank): Observable<any> {
+  var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  let headers = new HttpHeaders({'Content-Type': 'application/json'});
+     return this.httpClient.post('http://localhost:8080/user/'+_currentUser.emailAddress+'/travelbank',JSON.stringify(travelbank),{headers: headers})
+
+
+}
 getSeatLog(): Observable<any> {
   let headers = new HttpHeaders({'Content-Type': 'application/json'});
      return this.httpClient.get('http://localhost:8080/aircraft/1',{headers: headers})

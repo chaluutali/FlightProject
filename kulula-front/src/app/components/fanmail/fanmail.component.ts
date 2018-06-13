@@ -93,6 +93,7 @@ this.showExtendedView = false;
 
           this.inboxCounter = this.inboxCounter + 1;
         }
+
       }
 
     });
@@ -142,7 +143,7 @@ this.showExtendedView = false;
           for (i = 0; i < res.length; i++)
           {
             if(res[i].deleted === true){
-
+              res[i].deleted = false;
               this.deletedMessages.push(res[i]);
             }
           }
@@ -151,6 +152,7 @@ this.showExtendedView = false;
           this.showInbox = true;
           this.showComposer = false;
           this.showExtendedView = false;
+          this.deletedMessages = [];
 
         });
 
