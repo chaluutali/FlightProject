@@ -13,6 +13,7 @@ export class FanmailComponent implements OnInit {
   messageReply: string;
   extendedMessage: Mail;
   importantMessages = [];
+  deletedMessages = [];
   messages = [];
   user = [];
   currentView: string;
@@ -29,6 +30,7 @@ export class FanmailComponent implements OnInit {
   isDeleted: boolean = false;
   isStarred: boolean = false;
   isViewed: boolean = false;
+  starred: boolean = false;
 
   inboxCounter: number = 0;
   constructor(private _router: Router, private scheduledFlightService: ScheduledFlightService) { }
@@ -141,10 +143,10 @@ this.showExtendedView = false;
           {
             if(res[i].deleted === true){
 
-              this.importantMessages.push(res[i]);
+              this.deletedMessages.push(res[i]);
             }
           }
-          this.messages = this.importantMessages;
+          this.messages = this.deletedMessages;
           this.currentView = "Trash";
           this.showInbox = true;
           this.showComposer = false;
@@ -194,8 +196,39 @@ onReply(){
 
 moveToTrash(){
 
+  this.showExtendedView = false;
+  this.showInbox = false;
+  this.showComposer = false;
+  this.extendedMessage.deleted = true;
 
-  
+  console.log(this.extendedMessage);
+  this.scheduledFlightService.updateMail(this.extendedMessage).subscribe((res)=>{
+
+
+
+  });
+
+
+
+
+
+}
+markAsImportant(i){
+  this.extendedMessage = this.messages[i]
+  this.showExtendedView = false;
+  this.showInbox = true;
+  this.showComposer = false;
+  this.extendedMessage.starred = true;
+
+  console.log(this.extendedMessage);
+  this.scheduledFlightService.updateMail(this.extendedMessage).subscribe((res)=>{
+
+
+
+  });
+
+
+
 
 
 

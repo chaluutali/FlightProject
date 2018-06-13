@@ -85,24 +85,24 @@
                          </div>
                           <table class="table table-inbox table-hover">
                             <tbody *ngFor = "let messages of messages; let i = index">
-                              <tr class="unread"  *ngIf = "messages.viewed === false" (click) = 'viewExtendedMessage(i)'>
+                              <tr class="unread"  *ngIf = "messages.viewed === false" >
                                   <td class="inbox-small-cells">
-                                      <input type="checkbox" class="mail-checkbox">
+                                      <input type="checkbox" class="mail-checkbox" name="starred"[(ngModel)]="starred" value="true" (click) = "markAsImportant(i)">
                                   </td>
-                                  <td class="inbox-small-cells" ><i class="fa fa-star"></i></td>
+
                                   <td class="view-message  dont-show">{{messages.sender}}</td>
-                                  <td class="view-message ">{{messages.subject}}</td>
+                                  <td class="view-message " (click) = 'viewExtendedMessage(i)'>{{messages.subject}}</td>
                                   <td class="view-message  inbox-small-cells" *ngIf = "messages.attachment != null"><i class="fa fa-paperclip"></i></td>
                                   <td class="view-message  text-right">{{messages.time | date: 'hh:mm:ss'}}</td>
 
                               </tr>
-                              <tr  *ngIf = "messages.viewed === true" (click) = 'viewExtendedMessage(i)'>
+                              <tr  *ngIf = "messages.viewed === true" >
                                   <td class="inbox-small-cells">
                                       <input type="checkbox" class="mail-checkbox">
                                   </td>
-                                  <td class="inbox-small-cells" ><i class="fa fa-star"></i></td>
+
                                   <td class="view-message  dont-show">{{messages.sender}}</td>
-                                  <td class="view-message ">{{messages.subject}}</td>
+                                  <td class="view-message " (click) = 'viewExtendedMessage(i)'>{{messages.subject}}</td>
                                   <td class="view-message  inbox-small-cells" *ngIf = "messages.attachment != null"><i class="fa fa-paperclip"></i></td>
                                   <td class="view-message  text-right">{{messages.time | date: 'hh:mm:ss'}}</td>
 

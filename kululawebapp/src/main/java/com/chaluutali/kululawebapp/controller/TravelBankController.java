@@ -45,6 +45,16 @@ public class TravelBankController
 		return travelBankService.getTravelBank(travelBankId);
 	}
 	
+	@RequestMapping(method = RequestMethod.POST, value = "/user/{emailAddress}/travelbank")
+	public void addTravelBank(@PathVariable String emailAddress, @RequestBody TravelBank travelBank)
+	{
+		Optional<TravelBank> fromDB = travelBankService.getTravelBankByEmail(emailAddress);
+		int currentBalance = fromDB.get().getCurrentBalance();
+		int addedAmount = travelBank.getCurrentBalance();
+		int totalBalance = currentBalance + addedAmount;
+		fromDB.get().setCurrentBalance(totalBalance);
+		travelBankService.addTravelBank(fromDB.get());
+	}
 	@RequestMapping(method = RequestMethod.POST, value = "/user/{emailAddress}/searchlog/{searchLogDateId}/flight/{flightId}/flightItinerary/{bookingReference}/travelbank")
 	public void addTravelBank(@PathVariable String emailAddress, @PathVariable String searchLogDateId, @PathVariable int flightId, @PathVariable String bookingReference,  @RequestBody TravelBank travelBank)
 	{
