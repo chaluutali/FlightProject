@@ -177,7 +177,7 @@ this.showExtendedView = false;
     {
       this.showAlternate = true;
       this.showOriginal = false;
-      
+    
 
     }
   }
