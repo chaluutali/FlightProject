@@ -14,6 +14,7 @@ export class FanmailComponent implements OnInit {
   extendedMessage: Mail;
   importantMessages = [];
   deletedMessages = [];
+  preservedMessages = [];
   messages = [];
   user = [];
   currentView: string;
@@ -33,6 +34,10 @@ export class FanmailComponent implements OnInit {
   starred: boolean = false;
 
   inboxCounter: number = 0;
+
+
+  showAlternate: boolean = false;
+  showOriginal: boolean = true;
   constructor(private _router: Router, private scheduledFlightService: ScheduledFlightService) { }
 
   ngOnInit() {
@@ -149,6 +154,7 @@ this.showExtendedView = false;
             }
           }
           this.messages = this.deletedMessages;
+          this.preservedMessages = this.deletedMessages;
           this.currentView = "Trash";
           this.showInbox = true;
           this.showComposer = false;
@@ -161,11 +167,24 @@ this.showExtendedView = false;
 
   }
   viewExtendedMessage(i){
+  this.extendedMessage = this.messages[i]
 
+  var i;
+  for (i = 0; i < this.preservedMessages.length; i++)
+  {
+
+    if (this.extendedMessage.fanmailId === this.preservedMessages[i].fanmailId)
+    {
+      this.showAlternate = true;
+      this.showOriginal = false;
+      
+
+    }
+  }
     this.showExtendedView = true;
     this.showInbox = false;
     this.showComposer = false;
-    this.extendedMessage = this.messages[i]
+
     this.extendedMessage.viewed = true;
 
     console.log(this.extendedMessage);
@@ -212,6 +231,20 @@ moveToTrash(){
   });
 
 
+
+
+
+}
+deleteMail(){
+    const  fanmail = {
+
+      fanmailId: this.extendedMessage.fanmailId
+
+    }
+    this.scheduledFlightService.deleteMail(fanmail).subscribe((res)=>{
+
+        this.viewInbox();
+    });
 
 
 

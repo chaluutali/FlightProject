@@ -115,19 +115,25 @@
                             <button class="btn btn-primary" (click)='onReply()'style="width:24%">
                                 Reply
                             </button>
-                            <button class="btn btn-dark" (click)='moveToTrash()'style="width:24%">
+                            <button class="btn btn-dark" *ngIf = "showOriginal === true" (click)='moveToTrash()'style="width:24%">
                                 Move to Trash
                             </button>
+                            <button class="btn btn-outline-dark" *ngIf = "showAlternate === true"(click)='removeFromTrash()'style="width:24%">
+                                Remove From Trash
+                            </button>
 
+                            <button class="btn btn-success" *ngIf = "showOriginal === true" (click)='markAsImportant()' style="width:26%">
+                              Mark as Important
+                            </button>
+                            <button class="btn btn-outline-success" *ngIf = "showAlternate === true" (click)='unmarkAsImportant()' style="width:26%">
+                              unMark as Important
+                            </button>
                             <button class="btn btn-danger" (click)='deleteMail()' style="width:24%">
                                 Delete
                             </button>
-                            <button class="btn btn-success" (click)='markAsImportant()' style="width:26%">
-                                Mark as Important
-                            </button>
 
                               <textarea rows="18" cols="30" class="form-control" wrap="hard" >
-  From: {{extendedMessage.sender}}                                                     Subject: {{extendedMessage.subject}}                                                   Time: {{extendedMessage.time | date: 'hh:mm:ss'}}
+  From: {{extendedMessage.sender}}                                       Subject: {{extendedMessage.subject}}                                        Time: {{extendedMessage.time | date: 'hh:mm:ss'}}
 
 
   {{extendedMessage.message}}</textarea>

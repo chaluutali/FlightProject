@@ -284,4 +284,11 @@ updateMail(fanmail): Observable<any> {
 
 }
 
+deleteMail(fanmail): Observable<any> {
+  var _currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  let headers = new HttpHeaders({'Content-Type': 'application/json'});
+     return this.httpClient.delete('http://localhost:8080/user/'+_currentUser.emailAddress+'/fanmail/'+fanmail.fanmailId,{headers: headers})
+
+
+}
 }
